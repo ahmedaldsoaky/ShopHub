@@ -1,0 +1,16 @@
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Domain\bin\Debug\net8.0\myshop.Domain.deps.json
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Domain\bin\Debug\net8.0\myshop.Domain.dll
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Domain\bin\Debug\net8.0\myshop.Domain.pdb
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Domain\bin\Debug\net8.0\myshop.Common.dll
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Domain\bin\Debug\net8.0\myshop.Common.pdb
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Domain\obj\Debug\net8.0\myshop.Domain.csproj.AssemblyReference.cache
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Domain\obj\Debug\net8.0\myshop.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Domain\obj\Debug\net8.0\myshop.Domain.AssemblyInfoInputs.cache
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Domain\obj\Debug\net8.0\myshop.Domain.AssemblyInfo.cs
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Domain\obj\Debug\net8.0\myshop.Domain.csproj.CoreCompileInputs.cache
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Domain\obj\Debug\net8.0\myshop.Domain.sourcelink.json
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Domain\obj\Debug\net8.0\myshop.D.4456A457.Up2Date
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Domain\obj\Debug\net8.0\myshop.Domain.dll
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Domain\obj\Debug\net8.0\refint\myshop.Domain.dll
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Domain\obj\Debug\net8.0\myshop.Domain.pdb
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Domain\obj\Debug\net8.0\ref\myshop.Domain.dll

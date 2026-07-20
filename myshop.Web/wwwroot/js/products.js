@@ -19,15 +19,46 @@
                             <i class="fa-solid fa-pen"></i>
                         </a>
 
-                        <button class="btn btn-danger btn-sm">
+                        <button onclick="Delete('/Product/Delete/${id}')"
+                                class="btn btn-danger btn-sm">
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     `;
                 }
             }
-        ],
-        autoWidth: false,
-        scrollX: true
+        ]
     });
 
 });
+
+function Delete(url) {
+
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to undo this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+
+            $.ajax({
+                url: url,
+                type: "DELETE",
+                success: function (data) {
+
+                    if (data.success) {
+                        $("#mytable").DataTable().ajax.reload();
+                        toastr.success(data.message);
+                    }
+                    else {
+                        toastr.error(data.message);
+                    }
+                }
+            });
+
+        }
+
+    });
+}

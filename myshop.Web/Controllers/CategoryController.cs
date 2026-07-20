@@ -1,94 +1,107 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using myshop.DataAccess;
-using myshop.Entities.Models;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using myshop.BLL.DTOs.Category;
+using myshop.BLL.Interfaces;
+using myshop.Web.ViewModels.Category;
 
 namespace myshop.Web.Areas.Admin.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ICategoryService _categoryService;
+        private readonly IMapper _mapper;
 
-        public CategoryController(ApplicationDbContext context)
+        public CategoryController(
+            ICategoryService categoryService,
+            IMapper mapper)
         {
-            _context = context;
+            _categoryService = categoryService;
+            _mapper = mapper;
         }
 
         public IActionResult Index()
         {
-            var categories = _context.Categories.ToList();
-            return View(categories);
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetData()
+        {
+            var categories = await _categoryService.GetAllAsync();
+
+            return Json(new { data = categories });
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(Category category)
+        public async Task<IActionResult> Create(CategoryCreateVM categoryVM)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Categories.Add(category);
-                _context.SaveChanges();
-                TempData["Create"] = "Item has Created Successfully";
-                return RedirectToAction("Index");
-            }
-            return View(category);
+            if (!ModelState.IsValid)
+                return View(categoryVM);
+
+            var dto = _mapper.Map<CategoryCreateDto>(categoryVM);
+
+            await _categoryService.AddAsync(dto);
+
+            TempData["Create"] = "Item has Created Successfully";
+
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]
-        public IActionResult Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null | id == 0)
-            {
-                NotFound();
-            }
-            var categoryIndb = _context.Categories.Find(id);
+            var category = await _categoryService.GetByIdAsync(id);
 
-            return View(categoryIndb);
+            if (category is null)
+                return NotFound();
+
+            var vm = _mapper.Map<CategoryUpdateVM>(category);
+
+            return View(vm);
         }
 
         [HttpPost]
-        public IActionResult Edit(Category category)
+        public async Task<IActionResult> Edit(CategoryUpdateVM categoryVM)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Categories.Update(category);
+            if (!ModelState.IsValid)
+                return View(categoryVM);
 
-                _context.SaveChanges();
-                TempData["Update"] = "Data has Updated Successfully";
-                return RedirectToAction("Index");
-            }
-            return View(category);
+            var dto = _mapper.Map<CategoryUpdateDto>(categoryVM);
+
+            await _categoryService.Update(dto);
+
+            TempData["Update"] = "Data has Updated Successfully";
+
+            return RedirectToAction(nameof(Index));
         }
 
-        [HttpGet]
-        public IActionResult Delete(int? id)
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null | id == 0)
-            {
-                NotFound();
-            }
-            var categoryIndb = _context.Categories.Where(x => x.Id == id).FirstOrDefault();
+            var category = await _categoryService.GetByIdAsync(id);
 
-            return View(categoryIndb);
-        }
-
-        [HttpPost]
-        public IActionResult DeleteCategory(int? id)
-        {
-            var categoryIndb = _context.Categories.FirstOrDefault(x => x.Id == id);
-            if (categoryIndb == null)
+            if (category is null)
             {
-                NotFound();
+                return Json(new
+                {
+                    success = false,
+                    message = "Error while deleting."
+                });
             }
-            _context.Categories.Remove(categoryIndb);
-            _context.SaveChanges();
-            TempData["Delete"] = "Item has Deleted Successfully";
-            return RedirectToAction("Index");
+
+            await _categoryService.Delete(id);
+
+            return Json(new
+            {
+                success = true,
+                message = "Category deleted successfully."
+            });
         }
     }
 }

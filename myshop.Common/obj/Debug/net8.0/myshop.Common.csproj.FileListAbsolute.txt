@@ -1,0 +1,12 @@
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Common\bin\Debug\net8.0\myshop.Common.deps.json
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Common\bin\Debug\net8.0\myshop.Common.dll
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Common\bin\Debug\net8.0\myshop.Common.pdb
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Common\obj\Debug\net8.0\myshop.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Common\obj\Debug\net8.0\myshop.Common.AssemblyInfoInputs.cache
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Common\obj\Debug\net8.0\myshop.Common.AssemblyInfo.cs
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Common\obj\Debug\net8.0\myshop.Common.csproj.CoreCompileInputs.cache
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Common\obj\Debug\net8.0\myshop.Common.sourcelink.json
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Common\obj\Debug\net8.0\myshop.Common.dll
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Common\obj\Debug\net8.0\refint\myshop.Common.dll
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Common\obj\Debug\net8.0\myshop.Common.pdb
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Common\obj\Debug\net8.0\ref\myshop.Common.dll

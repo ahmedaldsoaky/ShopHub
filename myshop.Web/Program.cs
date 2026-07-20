@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
-using myshop.DataAccess;
+using Microsoft.Extensions.Options;
+using myshop.BLL.Mapping;
+using myshop.DAL.Context;
 using myshop.Entities.Models;
-using Stripe;
-using System;
+using myshop.Web.Seeds;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,9 +16,27 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
     )) ;
 
 builder.Services.AddIdentity<ApplicationUser,IdentityRole>(
-    options=>options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(4)
+    options=>
+    {
+        options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(4);
+        options.Password.RequireDigit = false;
+        options.Password.RequireUppercase = false;
+        options.Password.RequireLowercase = true;
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequiredLength = 4;
+    }
     ).AddDefaultTokenProviders().AddDefaultUI()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+
+///
+/// 
+/// ///  Dependency Injection for UnitOfWork and Repositories
+builder.Services.AddDataAccess();
+
+builder.Services.AddAutoMapper(
+    cfg => { },
+    AppDomain.CurrentDomain.GetAssemblies());
 
 
 builder.Services.AddHttpContextAccessor();
@@ -27,10 +45,13 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
 var app = builder.Build();
+// ask for it
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     db.Database.Migrate();
+    await IdentitySeeder.SeedRolesAsync(scope.ServiceProvider);
+    await IdentitySeeder.SeedAdminAsync(scope.ServiceProvider);
 }
 
 
