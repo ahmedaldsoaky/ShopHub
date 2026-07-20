@@ -19,15 +19,31 @@ builder.Services.AddIdentity<ApplicationUser,IdentityRole>(
     options=>
     {
         options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(4);
+        options.Lockout.MaxFailedAccessAttempts = 5;
+        options.Lockout.AllowedForNewUsers = true;
         options.Password.RequireDigit = false;
         options.Password.RequireUppercase = false;
         options.Password.RequireLowercase = true;
         options.Password.RequireNonAlphanumeric = false;
         options.Password.RequiredLength = 4;
     }
-    ).AddDefaultTokenProviders().AddDefaultUI()
+    ).AddDefaultTokenProviders()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy =>
+    {
+        policy.RequireRole("Admin");
+    });
+});
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Login";
+    options.LogoutPath = "/Account/Logout";
+    options.AccessDeniedPath = "/Account/AccessDenied";
+});
 
 ///
 /// 

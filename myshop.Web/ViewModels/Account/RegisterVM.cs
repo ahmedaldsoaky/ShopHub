@@ -4,23 +4,34 @@ namespace myshop.Web.ViewModels.Account
 {
     public class RegisterVM
     {
-        [Required]
-        public string FullName { get; set; }
+        [Required(ErrorMessage = "Full name is required.")]
+        [StringLength(100, MinimumLength = 3,
+            ErrorMessage = "Full name must be between 3 and 100 characters.")]
+        [Display(Name = "Full Name")]
+        public string FullName { get; set; } = string.Empty;
 
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Required(ErrorMessage = "Username is required.")]
+        [StringLength(50, MinimumLength = 3,
+            ErrorMessage = "Username must be between 3 and 50 characters.")]
+        [Display(Name = "Username")]
+        public string UserName { get; set; } = string.Empty;
 
-        [Required]
-        public string UserName { get; set; }
+        [Required(ErrorMessage = "Email is required.")]
+        [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
+        [Display(Name = "Email Address")]
+        public string Email { get; set; } = string.Empty;
 
-        [Required]
+        [Required(ErrorMessage = "Password is required.")]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
+        [MinLength(6, ErrorMessage = "Password must be at least 6 characters.")]
+        [Display(Name = "Password")]
+        public string Password { get; set; } = string.Empty;
 
-        [Required]
-        [Compare(nameof(Password))]
+        [Required(ErrorMessage = "Please confirm your password.")]
         [DataType(DataType.Password)]
-        public string ConfirmPassword { get; set; }
+        [Compare(nameof(Password),
+            ErrorMessage = "Password and confirmation password do not match.")]
+        [Display(Name = "Confirm Password")]
+        public string ConfirmPassword { get; set; } = string.Empty;
     }
 }

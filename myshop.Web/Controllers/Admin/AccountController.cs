@@ -7,7 +7,6 @@ using myshop.Web.ViewModels.Account;
 
 namespace myshop.Web.Controllers.Admin
 {
-    [Authorize(Roles = Roles.Admin)]
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -69,7 +68,13 @@ namespace myshop.Web.Controllers.Admin
                 model.UserName,
                 model.Password,
                 model.RememberMe,
-                lockoutOnFailure: false);
+                lockoutOnFailure: true);
+
+            if ((result.IsLockedOut))
+            {
+                ModelState.AddModelError("", "Your account has been locked due to multiple failed login attempts. Please try again later.");
+                return View(model);
+            }
 
             if (!result.Succeeded)
             {
@@ -82,6 +87,7 @@ namespace myshop.Web.Controllers.Admin
 
 
         [Authorize]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
@@ -89,11 +95,6 @@ namespace myshop.Web.Controllers.Admin
             return RedirectToAction(nameof(Login));
         }
 
-        /*
-            List Users
-            Change Role
-            Lock
-            Unlock
-         */
+        
     }
 }

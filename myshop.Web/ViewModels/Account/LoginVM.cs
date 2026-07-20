@@ -4,13 +4,16 @@ namespace myshop.Web.ViewModels.Account
 {
     public class LoginVM
     {
-        [Required]
-        public string UserName { get; set; }
+        [Required(ErrorMessage = "Username is required.")]
+        [Display(Name = "Username")]
+        public string UserName { get; set; } = string.Empty;
 
-        [Required]
+        [Required(ErrorMessage = "Password is required.")]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
+        [Display(Name = "Password")]
+        public string Password { get; set; } = string.Empty;
 
+        [Display(Name = "Remember Me")]
         public bool RememberMe { get; set; }
     }
 }

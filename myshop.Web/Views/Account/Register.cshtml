@@ -1,5 +1,120 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model myshop.Web.ViewModels.Account.RegisterVM
+
 @{
+    ViewBag.PageTitle = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<style>
+    body {
+        background: linear-gradient(135deg,#1e3a8a,#3b82f6);
+        min-height: 100vh;
+    }
+
+    .auth-card {
+        max-width: 520px;
+        margin: 50px auto;
+        background: white;
+        border-radius: 18px;
+        box-shadow: 0 20px 45px rgba(0,0,0,.18);
+        overflow: hidden;
+    }
+
+    .auth-header {
+        background: linear-gradient(135deg,#1e3a8a,#2563eb);
+        color: white;
+        text-align: center;
+        padding: 25px;
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    .form-control {
+        border-radius: 10px;
+        padding: 12px;
+    }
+
+        .form-control:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 .2rem rgba(37,99,235,.25);
+        }
+
+    .btn-register {
+        width: 100%;
+        border-radius: 10px;
+        padding: 12px;
+        background: linear-gradient(135deg,#1e40af,#2563eb);
+        border: none;
+        color: white;
+        font-weight: 600;
+    }
+
+        .btn-register:hover {
+            background: linear-gradient(135deg,#1e3a8a,#1d4ed8);
+        }
+</style>
+
+<div class="auth-card">
+
+    <div class="auth-header">
+        <i class="fa-solid fa-user-plus me-2"></i>
+        Create Account
+    </div>
+
+    <div class="p-4">
+
+        <form asp-action="Register" method="post">
+
+            <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="FullName"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="UserName"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <button class="btn btn-register">
+                <i class="fa-solid fa-user-plus me-2"></i>
+                Register
+            </button>
+
+            <div class="text-center mt-3">
+                Already have an account?
+                <a asp-action="Login">Login</a>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
 }

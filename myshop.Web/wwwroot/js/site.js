@@ -2,3 +2,35 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+
+function Delete(url) {
+
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to undo this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+
+            $.ajax({
+                url: url,
+                type: "DELETE",
+                success: function (data) {
+
+                    if (data.success) {
+                        $("#mytable").DataTable().ajax.reload();
+                        toastr.success(data.message);
+                    }
+                    else {
+                        toastr.error(data.message);
+                    }
+                }
+            });
+
+        }
+
+    });
+}

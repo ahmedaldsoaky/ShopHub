@@ -20,6 +20,8 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ICategoryService, CategoryService>();
             
+            services.AddScoped<IUserService, UserService>();
+            
             services.AddScoped<IImageService, ImageService>();
             return services;
         }

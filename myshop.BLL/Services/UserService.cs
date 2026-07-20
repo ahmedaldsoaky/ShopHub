@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using myshop.BLL.DTOs.User;
 using myshop.BLL.Interfaces;
+using myshop.Common;
 using myshop.Entities.Models;
 using System;
 using System.Collections.Generic;
@@ -10,37 +12,91 @@ using System.Threading.Tasks;
 
 namespace myshop.BLL.Services
 {
-    internal class UserService : IUserService
+    public class UserService : IUserService
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        public Task<IEnumerable<UserReadDto>> GetAllAsync(UserManager<ApplicationUser> userManager)
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IMapper _mapper;
+        public UserService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IMapper mapper)
         {
             _userManager = userManager;
+            _roleManager = roleManager;
+            _mapper = mapper;
+        }
+        public async Task<IEnumerable<UserReadDto>> GetAllAsync()
+        {
+            var users = _userManager.Users.ToList();
+            var usersDtos = new List<UserReadDto>();
+            foreach (var user in users)
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+                var userDto = _mapper.Map<UserReadDto>(user);
+                userDto.Role = roles.FirstOrDefault()!;
+                userDto.IsLocked = user.LockoutEnd.HasValue &&
+                        user.LockoutEnd > DateTimeOffset.UtcNow;
+                usersDtos.Add(userDto);
+            }
+            return usersDtos;
         }
 
-        public Task PromoteAsync(string id)
+        public async Task<bool> PromoteAsync(string id)
         {
-            throw new NotImplementedException();
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return false;
+
+            await _userManager.RemoveFromRoleAsync(user, Roles.Customer);
+
+            await _userManager.AddToRoleAsync(user, Roles.Admin);
+            return true;
         }
 
-        public Task DemoteAsync(string id)
+        public async Task<bool> DemoteAsync(string id, string currentUserId)
         {
-            throw new NotImplementedException();
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return false;
+
+            if (user.Id == currentUserId)
+                return false;
+
+
+            await _userManager.RemoveFromRoleAsync(user, Roles.Admin);
+
+            await _userManager.AddToRoleAsync(user, Roles.Customer);
+            return true;
         }
 
-        public Task LockAsync(string id)
+        public async Task<bool> LockAsync(string id, string currentUserId)
         {
-            throw new NotImplementedException();
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return false;
+
+            if (user.Id == currentUserId)
+                return false;
+
+            user.LockoutEnd = DateTimeOffset.MaxValue;
+            await _userManager.UpdateAsync(user);
+            return true;
         }
 
-        public Task UnlockAsync(string id)
+        public async Task<bool> UnlockAsync(string id)
         {
-            throw new NotImplementedException();
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return false;
+
+            user.LockoutEnd = null;
+
+            await _userManager.UpdateAsync(user);
+            return true;
         }
 
-        public Task DeleteAsync(string id)
+        public async Task<bool> DeleteAsync(string id, string currentUserId)
         {
-            throw new NotImplementedException();
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return false;
+            if (user.Id == currentUserId)
+                return false;
+            await _userManager.DeleteAsync(user);
+            return true;
         }
     }
 }

@@ -122,6 +122,7 @@ wwwroot\js\pages\dashboard2.js
 wwwroot\js\pages\dashboard3.js
 wwwroot\js\products.js
 wwwroot\js\site.js
+wwwroot\js\users.js
 wwwroot\lib\bootstrap\LICENSE
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map

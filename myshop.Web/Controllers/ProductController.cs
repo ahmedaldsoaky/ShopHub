@@ -44,7 +44,7 @@ namespace myshop.Web.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = Roles.Admin)]
+        [Authorize(policy: "AdminOnly")]
         public IActionResult Create()
         {
             ProductCreateVM productVM = new ProductCreateVM()
@@ -77,7 +77,6 @@ namespace myshop.Web.Areas.Admin.Controllers
             }
             return View(productVM);
         }
-        
         
         [HttpGet]
         [Authorize(Roles = Roles.Admin)]

@@ -1,28 +1,47 @@
-﻿$(document).ready(function () {
+﻿$(document).ready(() => {
 
-    $("#mytable").DataTable({
+    $('#mytable').DataTable({
         ajax: {
-            url: "/Product/GetData",
-            type: "GET",
-            dataSrc: "data"
+            url: '/Product/GetData',
+            type: 'GET',
+            dataSrc: 'data'
         },
         columns: [
-            { data: "name" },
-            { data: "description" },
-            { data: "price" },
-            { data: "categoryName" },
             {
-                data: "id",
-                render: function (id) {
+                data: 'name'
+            },
+            {
+                data: 'description'
+            },
+            {
+                data: 'price',
+                render: (data) => {
+                    // Gracefully format price to 2 decimal places with a dollar sign
+                    return data != null ? `$${parseFloat(data).toFixed(2)}` : 'N/A';
+                }
+            },
+            {
+                data: 'categoryName'
+            },
+            {
+                data: 'id',
+                orderable: false,   // Disable sorting on the action column
+                searchable: false,  // Disable searching on the action column
+                render: (id) => {
                     return `
-                        <a href="/Product/Edit/${id}" class="btn btn-success btn-sm">
-                            <i class="fa-solid fa-pen"></i>
-                        </a>
+                        <div class="d-flex gap-2">
+                            <a href="/Product/Edit/${id}" 
+                               class="btn btn-success btn-sm action-btn"
+                               title="Edit Product">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
 
-                        <button onclick="Delete('/Product/Delete/${id}')"
-                                class="btn btn-danger btn-sm">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
+                            <button onclick="Delete('/Product/Delete/${id}')"
+                                    class="btn btn-danger btn-sm action-btn"
+                                    title="Delete Product">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
                     `;
                 }
             }
@@ -30,35 +49,3 @@
     });
 
 });
-
-function Delete(url) {
-
-    Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to undo this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
-
-        if (result.isConfirmed) {
-
-            $.ajax({
-                url: url,
-                type: "DELETE",
-                success: function (data) {
-
-                    if (data.success) {
-                        $("#mytable").DataTable().ajax.reload();
-                        toastr.success(data.message);
-                    }
-                    else {
-                        toastr.error(data.message);
-                    }
-                }
-            });
-
-        }
-
-    });
-}
