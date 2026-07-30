@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Logging;
 using myshop.BLL.DTOs.Category;
 using myshop.BLL.DTOs.Product;
 using myshop.BLL.Interfaces;
@@ -10,6 +11,7 @@ using myshop.DAL.UnitOfWork;
 using myshop.Entities.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -22,26 +24,48 @@ namespace myshop.BLL.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IMemoryCache _cache;
+        private readonly ILogger<CategoryService> _logger;
         private const string CategoriesCacheKey = "Categories";
 
-        public CategoryService(IUnitOfWork unitOfWork, IMapper mapper, IMemoryCache cache)
+        public CategoryService(IUnitOfWork unitOfWork, IMapper mapper, IMemoryCache cache, ILogger<CategoryService> logger)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _cache = cache;
+            _logger = logger;
         }
 
         public async Task<IEnumerable<CategoryReadDto>> GetAllAsync()
         {
             // _unitOfWork.Categories.GetProjectedAsync(CategoryProjection.ToReadDto, pageSize: int.MaxValue);
-            return await _cache.GetOrCreateAsync(CategoriesCacheKey, async entry =>
+
+            var stopWatch = new Stopwatch();
+            stopWatch.Start();
+            
+            if(_cache.TryGetValue(CategoriesCacheKey, out IEnumerable<CategoryReadDto>? cachedCategories))
             {
-                entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30);
+                stopWatch.Stop();
+                _logger.LogInformation("Categories retrieved from cache in {ElapsedMilliseconds} ms", 
+                    stopWatch.ElapsedMilliseconds);
+                return cachedCategories;
+            }
+            _logger.LogInformation("Categories not found in cache. Retrieving from database...");
+
+            var categories = await _cache.GetOrCreateAsync(CategoriesCacheKey, async entry =>
+            {
+                entry.SetSlidingExpiration(TimeSpan.FromSeconds(100))
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(30))
+                    .SetPriority(CacheItemPriority.Normal);
 
                 return await _unitOfWork.Categories.GetProjectedAsync(
                     CategoryProjection.ToReadDto,
                     pageSize: int.MaxValue);
             });
+            stopWatch.Stop();
+            _logger.LogInformation("Categories retrieved from database in {ElapsedMilliseconds} ms", 
+                stopWatch.ElapsedMilliseconds);
+
+            return categories;
         }
 
         public async Task<PagedResult<CategoryReadDto>> GetPagedAsync(DataTableRequestDto? requestDto)
