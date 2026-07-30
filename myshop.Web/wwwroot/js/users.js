@@ -1,130 +1,229 @@
-﻿$(document).ready(() => {
-    loadData();
-});
+﻿$(function () {
 
-const loadData = () => {
     $('#mytable').DataTable({
-        destroy: true,
+
+        processing: true,
+        serverSide: true,
+        responsive: false,
+        autoWidth: false,
+
+        pageLength: 10,
+        lengthMenu: [10, 25, 50, 100],
+
+        order: [[0, "asc"]],
+
         ajax: {
-            url: '/User/GetData',
-            type: 'GET',
-            dataSrc: 'data'
+            url: "/User/GetData",
+            type: "GET",
+
+            data: function (d) {
+
+                d.pageNumber = (d.start / d.length) + 1;
+                d.pageSize = d.length;
+
+                d.search = d.search.value;
+
+                d.sortColumn = d.columns[d.order[0].column].data;
+                d.sortDirection = d.order[0].dir;
+
+            },
+
+            dataSrc: function (json) {
+                return json.data;
+            }
         },
+
         columns: [
             {
-                data: 'fullName'
+                data: "fullName"
             },
             {
-                data: 'userName'
+                data: "userName"
             },
             {
-                data: 'email'
+                data: "email"
             },
             {
-                data: 'role',
-                render: (data) => {
-                    return data === 'Admin'
+                data: "role",
+                className: "text-center",
+                render: function (data) {
+
+                    return data === "Admin"
                         ? `<span class="badge bg-primary">Admin</span>`
                         : `<span class="badge bg-success">Customer</span>`;
                 }
             },
             {
-                data: 'isLocked',
-                render: (data) => {
+                data: "isLocked",
+                className: "text-center",
+                render: function (data) {
+
                     return data
                         ? `<span class="badge bg-danger">Locked</span>`
                         : `<span class="badge bg-success">Active</span>`;
                 }
             },
             {
-                data: 'id',
+                data: "id",
                 orderable: false,
                 searchable: false,
-                render: (data, type, row) => {
+                className: "text-center",
+                width: "180px",
 
-                    // Determine Role Button
-                    const roleButton = row.role === 'Customer'
-                        ? `<button class="btn btn-primary btn-sm action-btn" onclick="Promote('${data}')" title="Promote to Admin">
-                               <i class="fa-solid fa-user-shield"></i>
-                           </button>`
-                        : `<button class="btn btn-warning btn-sm action-btn" onclick="Demote('${data}')" title="Demote to Customer">
-                               <i class="fa-solid fa-user"></i>
-                           </button>`;
+                render: function (data, type, row) {
 
-                    // Determine Lock Button
+                    const roleButton = row.role === "Customer"
+                                        ? `
+                        <button class="btn btn-outline-primary btn-sm"
+                                onclick="Promote('${data}')"
+                                title="Promote">
+                            <i class="fas fa-user-plus"></i>
+                        </button>`
+                                        : `
+                        <button class="btn btn-outline-warning btn-sm"
+                                onclick="Demote('${data}')"
+                                title="Demote">
+                            <i class="fas fa-user-minus"></i>
+                        </button>`;
+
                     const lockButton = row.isLocked
-                        ? `<button class="btn btn-success btn-sm action-btn" onclick="Unlock('${data}')" title="Unlock User">
-                               <i class="fa-solid fa-lock-open"></i>
-                           </button>`
-                        : `<button class="btn btn-secondary btn-sm action-btn" onclick="Lock('${data}')" title="Lock User">
-                               <i class="fa-solid fa-lock"></i>
-                           </button>`;
+                                        ? `
+                        <button class="btn btn-outline-success btn-sm"
+                                onclick="Unlock('${data}')"
+                                title="Unlock">
+                            <i class="fas fa-unlock"></i>
+                        </button>`
+                                        : `
+                        <button class="btn btn-outline-secondary btn-sm"
+                                onclick="Lock('${data}')"
+                                title="Lock">
+                            <i class="fas fa-lock"></i>
+                        </button>`;
 
-                    // Return combined buttons
                     return `
-                        <div class="d-flex gap-2">
+                        <div class="btn-group">
+
                             ${roleButton}
+
                             ${lockButton}
-                            <button class="btn btn-danger btn-sm action-btn" onclick="Delete('/User/Delete/${data}')" title="Delete User">
-                                <i class="fa-solid fa-trash"></i>
+
+                            <button
+                                onclick="Delete('/User/Delete/${data}')"
+                                class="btn btn-outline-danger btn-sm"
+                                title="Delete">
+
+                                <i class="fas fa-trash"></i>
+
                             </button>
+
                         </div>
                     `;
                 }
             }
-        ]
-    });
-};
+        ],
 
-// ==========================================
-// Reusable Helper for SweetAlert & AJAX
-// ==========================================
-const handleUserAction = (title, text, icon, confirmColor, confirmText, url, id) => {
-    Swal.fire({
-        title: title,
-        text: text,
-        icon: icon,
-        showCancelButton: true,
-        confirmButtonColor: confirmColor,
-        cancelButtonColor: '#6c757d',
-        confirmButtonText: confirmText
-    }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                url: url,
-                type: 'POST',
-                data: { id: id },
-                success: (response) => {
-                    if (response.success) {
-                        toastr.success(response.message);
-                        $('#mytable').DataTable().ajax.reload();
-                    } else {
-                        toastr.error(response.message);
-                    }
-                },
-                error: () => {
-                    toastr.error("An error occurred while communicating with the server.");
-                }
-            });
+        language: {
+
+            search: "_INPUT_",
+            searchPlaceholder: "Search users...",
+
+            lengthMenu: "Show _MENU_ users",
+
+            info: "Showing _START_ to _END_ of _TOTAL_ users",
+
+            infoEmpty: "No users found",
+
+            zeroRecords: "No matching users found",
+
+            processing: "Loading..."
         }
+
     });
-};
 
-// ==========================================
-// Action Triggers
-// ==========================================
-const Promote = (id) => {
-    handleUserAction('Promote User?', 'This user will become an Admin.', 'question', '#0d6efd', 'Yes, Promote', '/User/Promote', id);
-};
+}); 
 
-const Demote = (id) => {
-    handleUserAction('Demote User?', 'This user will become a Customer.', 'warning', '#f0ad4e', 'Yes, Demote', '/User/Demote', id);
-};
+function Promote(id) {
+    handleUserAction(
+        "Promote User?",
+        "This user will become an Admin.",
+        "question",
+        "#0d6efd",
+        "Yes, Promote",
+        "/User/Promote",
+        id
+    );
+}
 
-const Lock = (id) => {
-    handleUserAction('Lock User?', 'The user will not be able to login.', 'warning', '#dc3545', 'Yes, Lock', '/User/Lock', id);
-};
+function Demote(id) {
+    handleUserAction(
+        "Demote User?",
+        "This user will become a Customer.",
+        "warning",
+        "#f0ad4e",
+        "Yes, Demote",
+        "/User/Demote",
+        id
+    );
+}
 
-const Unlock = (id) => {
-    handleUserAction('Unlock User?', 'The user will be able to login again.', 'question', '#198754', 'Yes, Unlock', '/User/Unlock', id);
-};
+function Lock(id) {
+    handleUserAction(
+        "Lock User?",
+        "The user will not be able to login.",
+        "warning",
+        "#dc3545",
+        "Yes, Lock",
+        "/User/Lock",
+        id
+    );
+}
+
+function Unlock(id) {
+    handleUserAction(
+        "Unlock User?",
+        "The user will be able to login again.",
+        "question",
+        "#198754",
+        "Yes, Unlock",
+        "/User/Unlock",
+        id
+    );
+}
+
+function handleUserAction(title, text, icon, color, confirmText, url, id) {
+
+    Swal.fire({
+        title,
+        text,
+        icon,
+        showCancelButton: true,
+        confirmButtonColor: color,
+        cancelButtonColor: "#6c757d",
+        confirmButtonText: confirmText
+    }).then(result => {
+
+        if (!result.isConfirmed) return;
+
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: { id },
+
+            success: function (response) {
+
+                if (response.success) {
+                    toastr.success(response.message);
+                    $("#mytable").DataTable().ajax.reload(null, false);
+                }
+                else {
+                    toastr.error(response.message);
+                }
+            },
+
+            error: function () {
+                toastr.error("Something went wrong.");
+            }
+        });
+
+    });
+}

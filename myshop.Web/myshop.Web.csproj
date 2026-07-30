@@ -108,8 +108,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Seeds\Json\" />
     <Folder Include="Views\Shared\Components\" />
-    <Folder Include="wwwroot\Images\Products\" />
     <Folder Include="wwwroot\NewFolder\" />
   </ItemGroup>
 

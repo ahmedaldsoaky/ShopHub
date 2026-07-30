@@ -17,7 +17,6 @@ namespace myshop.BLL.Mapping
             .ForMember(dest => dest.ImgPath,
                        opt => opt.Ignore());
 
-            CreateMap<ProductUpdateDto, Product>();
             
             CreateMap<ProductUpdateDto, ProductUpdateVM>()
                 .ForMember(dest => dest.Img,
@@ -27,7 +26,6 @@ namespace myshop.BLL.Mapping
                 .ForMember(dest => dest.ImgPath,
                        opt => opt.Ignore());
 
-            CreateMap<Product, ProductReadDto>();
 
             CreateMap<ProductReadDto, ProductUpdateVM>()
                 .ForMember(d => d.Img, opt => opt.Ignore())
@@ -44,10 +42,6 @@ namespace myshop.BLL.Mapping
             CreateMap<CategoryReadDto, CategoryUpdateVM>();
             CreateMap<CategoryUpdateVM, CategoryReadDto>();
 
-
-            //CreateMap<CategoryUpdateDto, Category>();
-
-            //CreateMap<Category, CategoryReadDto>();
         }
     }
 }

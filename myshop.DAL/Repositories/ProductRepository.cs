@@ -13,11 +13,11 @@ namespace myshop.DAL.Repositories
             _context = context;
         }
 
-        public async Task<Product?> GetByIdWithCategoryAsync(int id)
-        {
-            return await _context.Products
-            .Include(p => p.Category)
-            .FirstOrDefaultAsync(p => p.Id == id);
-        }
+        //public async Task<Product?> GetByIdWithCategoryAsync(int id)
+        //{
+        //    return await _context.Products
+        //    .Select(p => new Product)
+        //    .FirstOrDefaultAsync(p => p.Id == id);
+        //}
     }
 }

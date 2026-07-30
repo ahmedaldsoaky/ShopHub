@@ -1,0 +1,1402 @@
+[
+  {
+    "Name": "Premium Electronics Kit",
+    "Description": "High-quality electronics product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 18.33,
+    "CategoryId": 1
+  },
+  {
+    "Name": "Classic Electronics Edition",
+    "Description": "High-quality electronics product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 26.67,
+    "CategoryId": 1
+  },
+  {
+    "Name": "Smart Electronics Series",
+    "Description": "High-quality electronics product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 35.01,
+    "CategoryId": 1
+  },
+  {
+    "Name": "Professional Electronics Model",
+    "Description": "High-quality electronics product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 43.35,
+    "CategoryId": 1
+  },
+  {
+    "Name": "Portable Computers Pack",
+    "Description": "High-quality computers product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 51.69,
+    "CategoryId": 2
+  },
+  {
+    "Name": "Advanced Computers Bundle",
+    "Description": "High-quality computers product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 60.03,
+    "CategoryId": 2
+  },
+  {
+    "Name": "Compact Computers Plus",
+    "Description": "High-quality computers product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 68.37,
+    "CategoryId": 2
+  },
+  {
+    "Name": "Eco Computers Pro",
+    "Description": "High-quality computers product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 76.71,
+    "CategoryId": 2
+  },
+  {
+    "Name": "Deluxe Smartphones Max",
+    "Description": "High-quality smartphones product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 85.05,
+    "CategoryId": 3
+  },
+  {
+    "Name": "Modern Smartphones Essential",
+    "Description": "High-quality smartphones product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 83.49,
+    "CategoryId": 3
+  },
+  {
+    "Name": "Premium Smartphones Kit",
+    "Description": "High-quality smartphones product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 91.83,
+    "CategoryId": 3
+  },
+  {
+    "Name": "Classic Smartphones Edition",
+    "Description": "High-quality smartphones product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 100.17,
+    "CategoryId": 3
+  },
+  {
+    "Name": "Smart Tablets Series",
+    "Description": "High-quality tablets product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 108.51,
+    "CategoryId": 4
+  },
+  {
+    "Name": "Professional Tablets Model",
+    "Description": "High-quality tablets product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 116.85,
+    "CategoryId": 4
+  },
+  {
+    "Name": "Portable Tablets Pack",
+    "Description": "High-quality tablets product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 125.19,
+    "CategoryId": 4
+  },
+  {
+    "Name": "Advanced Tablets Bundle",
+    "Description": "High-quality tablets product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 133.53,
+    "CategoryId": 4
+  },
+  {
+    "Name": "Compact Gaming Plus",
+    "Description": "High-quality gaming product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 141.87,
+    "CategoryId": 5
+  },
+  {
+    "Name": "Eco Gaming Pro",
+    "Description": "High-quality gaming product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 150.21,
+    "CategoryId": 5
+  },
+  {
+    "Name": "Deluxe Gaming Max",
+    "Description": "High-quality gaming product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 158.55,
+    "CategoryId": 5
+  },
+  {
+    "Name": "Modern Gaming Essential",
+    "Description": "High-quality gaming product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 156.99,
+    "CategoryId": 5
+  },
+  {
+    "Name": "Premium Books Kit",
+    "Description": "High-quality books product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 165.33,
+    "CategoryId": 6
+  },
+  {
+    "Name": "Classic Books Edition",
+    "Description": "High-quality books product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 173.67,
+    "CategoryId": 6
+  },
+  {
+    "Name": "Smart Books Series",
+    "Description": "High-quality books product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 182.01,
+    "CategoryId": 6
+  },
+  {
+    "Name": "Professional Books Model",
+    "Description": "High-quality books product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 190.35,
+    "CategoryId": 6
+  },
+  {
+    "Name": "Portable Office Supplies Pack",
+    "Description": "High-quality office supplies product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 198.69,
+    "CategoryId": 7
+  },
+  {
+    "Name": "Advanced Office Supplies Bundle",
+    "Description": "High-quality office supplies product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 207.03,
+    "CategoryId": 7
+  },
+  {
+    "Name": "Compact Office Supplies Plus",
+    "Description": "High-quality office supplies product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 215.37,
+    "CategoryId": 7
+  },
+  {
+    "Name": "Eco Office Supplies Pro",
+    "Description": "High-quality office supplies product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 223.71,
+    "CategoryId": 7
+  },
+  {
+    "Name": "Deluxe Furniture Max",
+    "Description": "High-quality furniture product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 232.05,
+    "CategoryId": 8
+  },
+  {
+    "Name": "Modern Furniture Essential",
+    "Description": "High-quality furniture product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 230.49,
+    "CategoryId": 8
+  },
+  {
+    "Name": "Premium Furniture Kit",
+    "Description": "High-quality furniture product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 238.83,
+    "CategoryId": 8
+  },
+  {
+    "Name": "Classic Furniture Edition",
+    "Description": "High-quality furniture product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 247.17,
+    "CategoryId": 8
+  },
+  {
+    "Name": "Smart Home Decor Series",
+    "Description": "High-quality home decor product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 255.51,
+    "CategoryId": 9
+  },
+  {
+    "Name": "Professional Home Decor Model",
+    "Description": "High-quality home decor product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 263.85,
+    "CategoryId": 9
+  },
+  {
+    "Name": "Portable Home Decor Pack",
+    "Description": "High-quality home decor product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 272.19,
+    "CategoryId": 9
+  },
+  {
+    "Name": "Advanced Home Decor Bundle",
+    "Description": "High-quality home decor product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 280.53,
+    "CategoryId": 9
+  },
+  {
+    "Name": "Compact Kitchen Plus",
+    "Description": "High-quality kitchen product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 288.87,
+    "CategoryId": 10
+  },
+  {
+    "Name": "Eco Kitchen Pro",
+    "Description": "High-quality kitchen product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 297.21,
+    "CategoryId": 10
+  },
+  {
+    "Name": "Deluxe Kitchen Max",
+    "Description": "High-quality kitchen product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 305.55,
+    "CategoryId": 10
+  },
+  {
+    "Name": "Modern Kitchen Essential",
+    "Description": "High-quality kitchen product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 303.99,
+    "CategoryId": 10
+  },
+  {
+    "Name": "Premium Appliances Kit",
+    "Description": "High-quality appliances product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 312.33,
+    "CategoryId": 11
+  },
+  {
+    "Name": "Classic Appliances Edition",
+    "Description": "High-quality appliances product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 320.67,
+    "CategoryId": 11
+  },
+  {
+    "Name": "Smart Appliances Series",
+    "Description": "High-quality appliances product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 329.01,
+    "CategoryId": 11
+  },
+  {
+    "Name": "Professional Appliances Model",
+    "Description": "High-quality appliances product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 337.35,
+    "CategoryId": 11
+  },
+  {
+    "Name": "Portable Fashion Pack",
+    "Description": "High-quality fashion product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 345.69,
+    "CategoryId": 12
+  },
+  {
+    "Name": "Advanced Fashion Bundle",
+    "Description": "High-quality fashion product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 354.03,
+    "CategoryId": 12
+  },
+  {
+    "Name": "Compact Fashion Plus",
+    "Description": "High-quality fashion product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 362.37,
+    "CategoryId": 12
+  },
+  {
+    "Name": "Eco Fashion Pro",
+    "Description": "High-quality fashion product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 370.71,
+    "CategoryId": 12
+  },
+  {
+    "Name": "Deluxe Men Clothing Max",
+    "Description": "High-quality men clothing product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 379.05,
+    "CategoryId": 13
+  },
+  {
+    "Name": "Modern Men Clothing Essential",
+    "Description": "High-quality men clothing product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 377.49,
+    "CategoryId": 13
+  },
+  {
+    "Name": "Premium Men Clothing Kit",
+    "Description": "High-quality men clothing product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 385.83,
+    "CategoryId": 13
+  },
+  {
+    "Name": "Classic Men Clothing Edition",
+    "Description": "High-quality men clothing product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 394.17,
+    "CategoryId": 13
+  },
+  {
+    "Name": "Smart Women Clothing Series",
+    "Description": "High-quality women clothing product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 402.51,
+    "CategoryId": 14
+  },
+  {
+    "Name": "Professional Women Clothing Model",
+    "Description": "High-quality women clothing product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 410.85,
+    "CategoryId": 14
+  },
+  {
+    "Name": "Portable Women Clothing Pack",
+    "Description": "High-quality women clothing product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 419.19,
+    "CategoryId": 14
+  },
+  {
+    "Name": "Advanced Women Clothing Bundle",
+    "Description": "High-quality women clothing product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 427.53,
+    "CategoryId": 14
+  },
+  {
+    "Name": "Compact Kids Clothing Plus",
+    "Description": "High-quality kids clothing product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 435.87,
+    "CategoryId": 15
+  },
+  {
+    "Name": "Eco Kids Clothing Pro",
+    "Description": "High-quality kids clothing product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 444.21,
+    "CategoryId": 15
+  },
+  {
+    "Name": "Deluxe Kids Clothing Max",
+    "Description": "High-quality kids clothing product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 452.55,
+    "CategoryId": 15
+  },
+  {
+    "Name": "Modern Kids Clothing Essential",
+    "Description": "High-quality kids clothing product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 450.99,
+    "CategoryId": 15
+  },
+  {
+    "Name": "Premium Shoes Kit",
+    "Description": "High-quality shoes product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 459.33,
+    "CategoryId": 16
+  },
+  {
+    "Name": "Classic Shoes Edition",
+    "Description": "High-quality shoes product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 467.67,
+    "CategoryId": 16
+  },
+  {
+    "Name": "Smart Shoes Series",
+    "Description": "High-quality shoes product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 476.01,
+    "CategoryId": 16
+  },
+  {
+    "Name": "Professional Shoes Model",
+    "Description": "High-quality shoes product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 484.35,
+    "CategoryId": 16
+  },
+  {
+    "Name": "Portable Bags Pack",
+    "Description": "High-quality bags product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 492.69,
+    "CategoryId": 17
+  },
+  {
+    "Name": "Advanced Bags Bundle",
+    "Description": "High-quality bags product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 501.03,
+    "CategoryId": 17
+  },
+  {
+    "Name": "Compact Bags Plus",
+    "Description": "High-quality bags product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 509.37,
+    "CategoryId": 17
+  },
+  {
+    "Name": "Eco Bags Pro",
+    "Description": "High-quality bags product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 517.71,
+    "CategoryId": 17
+  },
+  {
+    "Name": "Deluxe Jewelry Max",
+    "Description": "High-quality jewelry product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 526.05,
+    "CategoryId": 18
+  },
+  {
+    "Name": "Modern Jewelry Essential",
+    "Description": "High-quality jewelry product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 524.49,
+    "CategoryId": 18
+  },
+  {
+    "Name": "Premium Jewelry Kit",
+    "Description": "High-quality jewelry product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 532.83,
+    "CategoryId": 18
+  },
+  {
+    "Name": "Classic Jewelry Edition",
+    "Description": "High-quality jewelry product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 541.17,
+    "CategoryId": 18
+  },
+  {
+    "Name": "Smart Watches Series",
+    "Description": "High-quality watches product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 549.51,
+    "CategoryId": 19
+  },
+  {
+    "Name": "Professional Watches Model",
+    "Description": "High-quality watches product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 557.85,
+    "CategoryId": 19
+  },
+  {
+    "Name": "Portable Watches Pack",
+    "Description": "High-quality watches product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 566.19,
+    "CategoryId": 19
+  },
+  {
+    "Name": "Advanced Watches Bundle",
+    "Description": "High-quality watches product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 574.53,
+    "CategoryId": 19
+  },
+  {
+    "Name": "Compact Beauty Plus",
+    "Description": "High-quality beauty product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 582.87,
+    "CategoryId": 20
+  },
+  {
+    "Name": "Eco Beauty Pro",
+    "Description": "High-quality beauty product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 591.21,
+    "CategoryId": 20
+  },
+  {
+    "Name": "Deluxe Beauty Max",
+    "Description": "High-quality beauty product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 599.55,
+    "CategoryId": 20
+  },
+  {
+    "Name": "Modern Beauty Essential",
+    "Description": "High-quality beauty product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 597.99,
+    "CategoryId": 20
+  },
+  {
+    "Name": "Premium Health Kit",
+    "Description": "High-quality health product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 606.33,
+    "CategoryId": 21
+  },
+  {
+    "Name": "Classic Health Edition",
+    "Description": "High-quality health product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 614.67,
+    "CategoryId": 21
+  },
+  {
+    "Name": "Smart Health Series",
+    "Description": "High-quality health product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 623.01,
+    "CategoryId": 21
+  },
+  {
+    "Name": "Professional Health Model",
+    "Description": "High-quality health product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 631.35,
+    "CategoryId": 21
+  },
+  {
+    "Name": "Portable Sports Pack",
+    "Description": "High-quality sports product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 639.69,
+    "CategoryId": 22
+  },
+  {
+    "Name": "Advanced Sports Bundle",
+    "Description": "High-quality sports product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 648.03,
+    "CategoryId": 22
+  },
+  {
+    "Name": "Compact Sports Plus",
+    "Description": "High-quality sports product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 656.37,
+    "CategoryId": 22
+  },
+  {
+    "Name": "Eco Sports Pro",
+    "Description": "High-quality sports product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 664.71,
+    "CategoryId": 22
+  },
+  {
+    "Name": "Deluxe Fitness Max",
+    "Description": "High-quality fitness product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 673.05,
+    "CategoryId": 23
+  },
+  {
+    "Name": "Modern Fitness Essential",
+    "Description": "High-quality fitness product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 671.49,
+    "CategoryId": 23
+  },
+  {
+    "Name": "Premium Fitness Kit",
+    "Description": "High-quality fitness product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 679.83,
+    "CategoryId": 23
+  },
+  {
+    "Name": "Classic Fitness Edition",
+    "Description": "High-quality fitness product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 688.17,
+    "CategoryId": 23
+  },
+  {
+    "Name": "Smart Outdoor Series",
+    "Description": "High-quality outdoor product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 696.51,
+    "CategoryId": 24
+  },
+  {
+    "Name": "Professional Outdoor Model",
+    "Description": "High-quality outdoor product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 704.85,
+    "CategoryId": 24
+  },
+  {
+    "Name": "Portable Outdoor Pack",
+    "Description": "High-quality outdoor product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 713.19,
+    "CategoryId": 24
+  },
+  {
+    "Name": "Advanced Outdoor Bundle",
+    "Description": "High-quality outdoor product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 721.53,
+    "CategoryId": 24
+  },
+  {
+    "Name": "Compact Automotive Plus",
+    "Description": "High-quality automotive product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 729.87,
+    "CategoryId": 25
+  },
+  {
+    "Name": "Eco Automotive Pro",
+    "Description": "High-quality automotive product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 738.21,
+    "CategoryId": 25
+  },
+  {
+    "Name": "Deluxe Automotive Max",
+    "Description": "High-quality automotive product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 746.55,
+    "CategoryId": 25
+  },
+  {
+    "Name": "Modern Automotive Essential",
+    "Description": "High-quality automotive product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 744.99,
+    "CategoryId": 25
+  },
+  {
+    "Name": "Premium Motorcycles Kit",
+    "Description": "High-quality motorcycles product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 753.33,
+    "CategoryId": 26
+  },
+  {
+    "Name": "Classic Motorcycles Edition",
+    "Description": "High-quality motorcycles product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 761.67,
+    "CategoryId": 26
+  },
+  {
+    "Name": "Smart Motorcycles Series",
+    "Description": "High-quality motorcycles product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 770.01,
+    "CategoryId": 26
+  },
+  {
+    "Name": "Professional Motorcycles Model",
+    "Description": "High-quality motorcycles product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 778.35,
+    "CategoryId": 26
+  },
+  {
+    "Name": "Portable Tools Pack",
+    "Description": "High-quality tools product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 786.69,
+    "CategoryId": 27
+  },
+  {
+    "Name": "Advanced Tools Bundle",
+    "Description": "High-quality tools product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 795.03,
+    "CategoryId": 27
+  },
+  {
+    "Name": "Compact Tools Plus",
+    "Description": "High-quality tools product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 803.37,
+    "CategoryId": 27
+  },
+  {
+    "Name": "Eco Tools Pro",
+    "Description": "High-quality tools product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 811.71,
+    "CategoryId": 27
+  },
+  {
+    "Name": "Deluxe Garden Max",
+    "Description": "High-quality garden product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 820.05,
+    "CategoryId": 28
+  },
+  {
+    "Name": "Modern Garden Essential",
+    "Description": "High-quality garden product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 818.49,
+    "CategoryId": 28
+  },
+  {
+    "Name": "Premium Garden Kit",
+    "Description": "High-quality garden product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 826.83,
+    "CategoryId": 28
+  },
+  {
+    "Name": "Classic Garden Edition",
+    "Description": "High-quality garden product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 835.17,
+    "CategoryId": 28
+  },
+  {
+    "Name": "Smart Pet Supplies Series",
+    "Description": "High-quality pet supplies product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 843.51,
+    "CategoryId": 29
+  },
+  {
+    "Name": "Professional Pet Supplies Model",
+    "Description": "High-quality pet supplies product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 851.85,
+    "CategoryId": 29
+  },
+  {
+    "Name": "Portable Pet Supplies Pack",
+    "Description": "High-quality pet supplies product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 860.19,
+    "CategoryId": 29
+  },
+  {
+    "Name": "Advanced Pet Supplies Bundle",
+    "Description": "High-quality pet supplies product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 868.53,
+    "CategoryId": 29
+  },
+  {
+    "Name": "Compact Baby Products Plus",
+    "Description": "High-quality baby products product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 876.87,
+    "CategoryId": 30
+  },
+  {
+    "Name": "Eco Baby Products Pro",
+    "Description": "High-quality baby products product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 885.21,
+    "CategoryId": 30
+  },
+  {
+    "Name": "Deluxe Baby Products Max",
+    "Description": "High-quality baby products product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 893.55,
+    "CategoryId": 30
+  },
+  {
+    "Name": "Modern Baby Products Essential",
+    "Description": "High-quality baby products product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 891.99,
+    "CategoryId": 30
+  },
+  {
+    "Name": "Premium Toys Kit",
+    "Description": "High-quality toys product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 900.33,
+    "CategoryId": 31
+  },
+  {
+    "Name": "Classic Toys Edition",
+    "Description": "High-quality toys product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 908.67,
+    "CategoryId": 31
+  },
+  {
+    "Name": "Smart Toys Series",
+    "Description": "High-quality toys product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 917.01,
+    "CategoryId": 31
+  },
+  {
+    "Name": "Professional Toys Model",
+    "Description": "High-quality toys product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 925.35,
+    "CategoryId": 31
+  },
+  {
+    "Name": "Portable Music Pack",
+    "Description": "High-quality music product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 933.69,
+    "CategoryId": 32
+  },
+  {
+    "Name": "Advanced Music Bundle",
+    "Description": "High-quality music product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 942.03,
+    "CategoryId": 32
+  },
+  {
+    "Name": "Compact Music Plus",
+    "Description": "High-quality music product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 950.37,
+    "CategoryId": 32
+  },
+  {
+    "Name": "Eco Music Pro",
+    "Description": "High-quality music product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 958.71,
+    "CategoryId": 32
+  },
+  {
+    "Name": "Deluxe Movies Max",
+    "Description": "High-quality movies product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 967.05,
+    "CategoryId": 33
+  },
+  {
+    "Name": "Modern Movies Essential",
+    "Description": "High-quality movies product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 965.49,
+    "CategoryId": 33
+  },
+  {
+    "Name": "Premium Movies Kit",
+    "Description": "High-quality movies product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 973.83,
+    "CategoryId": 33
+  },
+  {
+    "Name": "Classic Movies Edition",
+    "Description": "High-quality movies product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 982.17,
+    "CategoryId": 33
+  },
+  {
+    "Name": "Smart Photography Series",
+    "Description": "High-quality photography product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 990.51,
+    "CategoryId": 34
+  },
+  {
+    "Name": "Professional Photography Model",
+    "Description": "High-quality photography product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 998.85,
+    "CategoryId": 34
+  },
+  {
+    "Name": "Portable Photography Pack",
+    "Description": "High-quality photography product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1007.19,
+    "CategoryId": 34
+  },
+  {
+    "Name": "Advanced Photography Bundle",
+    "Description": "High-quality photography product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1015.53,
+    "CategoryId": 34
+  },
+  {
+    "Name": "Compact Audio Plus",
+    "Description": "High-quality audio product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1023.87,
+    "CategoryId": 35
+  },
+  {
+    "Name": "Eco Audio Pro",
+    "Description": "High-quality audio product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1032.21,
+    "CategoryId": 35
+  },
+  {
+    "Name": "Deluxe Audio Max",
+    "Description": "High-quality audio product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1040.55,
+    "CategoryId": 35
+  },
+  {
+    "Name": "Modern Audio Essential",
+    "Description": "High-quality audio product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1038.99,
+    "CategoryId": 35
+  },
+  {
+    "Name": "Premium Video Kit",
+    "Description": "High-quality video product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1047.33,
+    "CategoryId": 36
+  },
+  {
+    "Name": "Classic Video Edition",
+    "Description": "High-quality video product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1055.67,
+    "CategoryId": 36
+  },
+  {
+    "Name": "Smart Video Series",
+    "Description": "High-quality video product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1064.01,
+    "CategoryId": 36
+  },
+  {
+    "Name": "Professional Video Model",
+    "Description": "High-quality video product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1072.35,
+    "CategoryId": 36
+  },
+  {
+    "Name": "Portable Networking Pack",
+    "Description": "High-quality networking product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1080.69,
+    "CategoryId": 37
+  },
+  {
+    "Name": "Advanced Networking Bundle",
+    "Description": "High-quality networking product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1089.03,
+    "CategoryId": 37
+  },
+  {
+    "Name": "Compact Networking Plus",
+    "Description": "High-quality networking product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1097.37,
+    "CategoryId": 37
+  },
+  {
+    "Name": "Eco Networking Pro",
+    "Description": "High-quality networking product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1105.71,
+    "CategoryId": 37
+  },
+  {
+    "Name": "Deluxe Software Max",
+    "Description": "High-quality software product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1114.05,
+    "CategoryId": 38
+  },
+  {
+    "Name": "Modern Software Essential",
+    "Description": "High-quality software product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1112.49,
+    "CategoryId": 38
+  },
+  {
+    "Name": "Premium Software Kit",
+    "Description": "High-quality software product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1120.83,
+    "CategoryId": 38
+  },
+  {
+    "Name": "Classic Software Edition",
+    "Description": "High-quality software product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1129.17,
+    "CategoryId": 38
+  },
+  {
+    "Name": "Smart Cloud Services Series",
+    "Description": "High-quality cloud services product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1137.51,
+    "CategoryId": 39
+  },
+  {
+    "Name": "Professional Cloud Services Model",
+    "Description": "High-quality cloud services product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1145.85,
+    "CategoryId": 39
+  },
+  {
+    "Name": "Portable Cloud Services Pack",
+    "Description": "High-quality cloud services product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1154.19,
+    "CategoryId": 39
+  },
+  {
+    "Name": "Advanced Cloud Services Bundle",
+    "Description": "High-quality cloud services product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1162.53,
+    "CategoryId": 39
+  },
+  {
+    "Name": "Compact Education Plus",
+    "Description": "High-quality education product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1170.87,
+    "CategoryId": 40
+  },
+  {
+    "Name": "Eco Education Pro",
+    "Description": "High-quality education product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1179.21,
+    "CategoryId": 40
+  },
+  {
+    "Name": "Deluxe Education Max",
+    "Description": "High-quality education product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1187.55,
+    "CategoryId": 40
+  },
+  {
+    "Name": "Modern Education Essential",
+    "Description": "High-quality education product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1185.99,
+    "CategoryId": 40
+  },
+  {
+    "Name": "Premium Art Kit",
+    "Description": "High-quality art product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1194.33,
+    "CategoryId": 41
+  },
+  {
+    "Name": "Classic Art Edition",
+    "Description": "High-quality art product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1202.67,
+    "CategoryId": 41
+  },
+  {
+    "Name": "Smart Art Series",
+    "Description": "High-quality art product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1211.01,
+    "CategoryId": 41
+  },
+  {
+    "Name": "Professional Art Model",
+    "Description": "High-quality art product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1219.35,
+    "CategoryId": 41
+  },
+  {
+    "Name": "Portable Crafts Pack",
+    "Description": "High-quality crafts product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1227.69,
+    "CategoryId": 42
+  },
+  {
+    "Name": "Advanced Crafts Bundle",
+    "Description": "High-quality crafts product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1236.03,
+    "CategoryId": 42
+  },
+  {
+    "Name": "Compact Crafts Plus",
+    "Description": "High-quality crafts product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1244.37,
+    "CategoryId": 42
+  },
+  {
+    "Name": "Eco Crafts Pro",
+    "Description": "High-quality crafts product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1252.71,
+    "CategoryId": 42
+  },
+  {
+    "Name": "Deluxe Travel Max",
+    "Description": "High-quality travel product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1261.05,
+    "CategoryId": 43
+  },
+  {
+    "Name": "Modern Travel Essential",
+    "Description": "High-quality travel product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1259.49,
+    "CategoryId": 43
+  },
+  {
+    "Name": "Premium Travel Kit",
+    "Description": "High-quality travel product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1267.83,
+    "CategoryId": 43
+  },
+  {
+    "Name": "Classic Travel Edition",
+    "Description": "High-quality travel product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1276.17,
+    "CategoryId": 43
+  },
+  {
+    "Name": "Smart Food Series",
+    "Description": "High-quality food product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1284.51,
+    "CategoryId": 44
+  },
+  {
+    "Name": "Professional Food Model",
+    "Description": "High-quality food product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1292.85,
+    "CategoryId": 44
+  },
+  {
+    "Name": "Portable Food Pack",
+    "Description": "High-quality food product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1301.19,
+    "CategoryId": 44
+  },
+  {
+    "Name": "Advanced Food Bundle",
+    "Description": "High-quality food product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1309.53,
+    "CategoryId": 44
+  },
+  {
+    "Name": "Compact Beverages Plus",
+    "Description": "High-quality beverages product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1317.87,
+    "CategoryId": 45
+  },
+  {
+    "Name": "Eco Beverages Pro",
+    "Description": "High-quality beverages product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1326.21,
+    "CategoryId": 45
+  },
+  {
+    "Name": "Deluxe Beverages Max",
+    "Description": "High-quality beverages product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1334.55,
+    "CategoryId": 45
+  },
+  {
+    "Name": "Modern Beverages Essential",
+    "Description": "High-quality beverages product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1332.99,
+    "CategoryId": 45
+  },
+  {
+    "Name": "Premium Organic Products Kit",
+    "Description": "High-quality organic products product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1341.33,
+    "CategoryId": 46
+  },
+  {
+    "Name": "Classic Organic Products Edition",
+    "Description": "High-quality organic products product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1349.67,
+    "CategoryId": 46
+  },
+  {
+    "Name": "Smart Organic Products Series",
+    "Description": "High-quality organic products product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1358.01,
+    "CategoryId": 46
+  },
+  {
+    "Name": "Professional Organic Products Model",
+    "Description": "High-quality organic products product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1366.35,
+    "CategoryId": 46
+  },
+  {
+    "Name": "Portable Industrial Pack",
+    "Description": "High-quality industrial product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1374.69,
+    "CategoryId": 47
+  },
+  {
+    "Name": "Advanced Industrial Bundle",
+    "Description": "High-quality industrial product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1383.03,
+    "CategoryId": 47
+  },
+  {
+    "Name": "Compact Industrial Plus",
+    "Description": "High-quality industrial product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1391.37,
+    "CategoryId": 47
+  },
+  {
+    "Name": "Eco Industrial Pro",
+    "Description": "High-quality industrial product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1399.71,
+    "CategoryId": 47
+  },
+  {
+    "Name": "Deluxe Safety Equipment Max",
+    "Description": "High-quality safety equipment product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1408.05,
+    "CategoryId": 48
+  },
+  {
+    "Name": "Modern Safety Equipment Essential",
+    "Description": "High-quality safety equipment product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1406.49,
+    "CategoryId": 48
+  },
+  {
+    "Name": "Premium Safety Equipment Kit",
+    "Description": "High-quality safety equipment product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1414.83,
+    "CategoryId": 48
+  },
+  {
+    "Name": "Classic Safety Equipment Edition",
+    "Description": "High-quality safety equipment product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1423.17,
+    "CategoryId": 48
+  },
+  {
+    "Name": "Smart Medical Supplies Series",
+    "Description": "High-quality medical supplies product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1431.51,
+    "CategoryId": 49
+  },
+  {
+    "Name": "Professional Medical Supplies Model",
+    "Description": "High-quality medical supplies product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1439.85,
+    "CategoryId": 49
+  },
+  {
+    "Name": "Portable Medical Supplies Pack",
+    "Description": "High-quality medical supplies product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1448.19,
+    "CategoryId": 49
+  },
+  {
+    "Name": "Advanced Medical Supplies Bundle",
+    "Description": "High-quality medical supplies product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1456.53,
+    "CategoryId": 49
+  },
+  {
+    "Name": "Compact Gift Items Plus",
+    "Description": "High-quality gift items product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1464.87,
+    "CategoryId": 50
+  },
+  {
+    "Name": "Eco Gift Items Pro",
+    "Description": "High-quality gift items product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1473.21,
+    "CategoryId": 50
+  },
+  {
+    "Name": "Deluxe Gift Items Max",
+    "Description": "High-quality gift items product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1481.55,
+    "CategoryId": 50
+  },
+  {
+    "Name": "Modern Gift Items Essential",
+    "Description": "High-quality gift items product designed for reliability, durability, and everyday use.",
+    "ImgPath": "Default/defaultProduct.jpg",
+    "Price": 1479.99,
+    "CategoryId": 50
+  }
+]

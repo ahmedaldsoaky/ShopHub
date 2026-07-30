@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using myshop.BLL.DTOs.Category;
 using myshop.BLL.Interfaces;
+using myshop.Common;
 using myshop.Web.ViewModels.Category;
 
 namespace myshop.Web.Areas.Admin.Controllers
@@ -25,11 +26,17 @@ namespace myshop.Web.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetData()
+        public async Task<IActionResult> GetData(DataTableRequestDto requestDto)
         {
-            var categories = await _categoryService.GetAllAsync();
+            var pagedCategories = await _categoryService.GetPagedAsync(requestDto);
 
-            return Json(new { data = categories });
+            return Json(new
+            {
+                draw = Request.Query["draw"],
+                data = pagedCategories.Data,
+                recordsTotal = pagedCategories.TotalCount,
+                recordsFiltered = pagedCategories.FilteredCount
+            });
         }
 
         [HttpGet]

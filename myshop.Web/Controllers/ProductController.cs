@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using myshop.BLL.DTOs.Product;
@@ -36,11 +37,17 @@ namespace myshop.Web.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetData()
+        public async Task<IActionResult> GetData(DataTableRequestDto requestDto)
         {
-            var products = await _productService.GetAllAsync();
+            var pagedProducts = await _productService.GetPagedAsync(requestDto);
 
-            return Json(new { data = products });
+            return Json(new
+            {
+                draw = Request.Query["draw"],
+                data = pagedProducts.Data,
+                recordsTotal = pagedProducts.TotalCount,
+                recordsFiltered = pagedProducts.FilteredCount
+            });
         }
 
         [HttpGet]
@@ -62,20 +69,19 @@ namespace myshop.Web.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(ProductCreateVM productVM)
         {
-            if (ModelState.IsValid)
-            {
-                var product = _mapper.Map<ProductCreateDto>(productVM);
+            if (!ModelState.IsValid)
+                return View(productVM);
+            
+            var product = _mapper.Map<ProductCreateDto>(productVM);
                 
-                if (productVM.ImgPath is not null)
-                    product.ImgPath = await _imageService.SaveImageAsync(productVM.ImgPath, "Products"); ;
+            if (productVM.ImgFile is not null)
+                product.ImgPath = await _imageService.SaveImageAsync(productVM.ImgFile, "Products"); ;
                 
-                await _productService.AddAsync(product);
+            await _productService.AddAsync(product);
                 
-                TempData["Create"] = "Item has Created Successfully";
+            TempData["Create"] = "Item has Created Successfully";
                 
-                return RedirectToAction("Index");
-            }
-            return View(productVM);
+            return RedirectToAction("Index");
         }
         
         [HttpGet]
@@ -117,9 +123,25 @@ namespace myshop.Web.Areas.Admin.Controllers
             }
 
             var dto = _mapper.Map<ProductUpdateDto>(productVM);
-            
-            if(productVM.Img is not null)
-                dto.ImgPath = await _imageService.ReplaceImageAsync(productVM.Img, productInDb.ImgPath, "Products");
+
+            try
+            {
+                if(productVM.Img is not null)
+                    dto.ImgPath = await _imageService.ReplaceImageAsync(productVM.Img, productInDb.ImgPath, "Products");
+            }
+            catch (InvalidOperationException ex)
+            {
+                ModelState.AddModelError(nameof(productVM.Img), ex.Message);
+                
+                productVM.CategoryList = (await _categoryService.GetAllAsync())
+                    .Select(c => new SelectListItem
+                    {
+                        Value = c.Id.ToString(),
+                        Text = c.Name
+                    });
+
+                return View(productVM);
+            }
             
             await _productService.Update(dto);
 

@@ -14,7 +14,7 @@ namespace myshop.Web.ViewModels.Product
         
         [Display(Name = "Image")]
         //[AllowedExtensions(".jpg", ".jpeg", ".png", ".webp")] نبقى نعملها بعدين
-        public IFormFile? ImgPath { get; set; } = null!;
+        public IFormFile? ImgFile { get; set; } = null!;
         
         [Required, Range(0, double.MaxValue)]
         public decimal Price { get; set; }

@@ -1,0 +1,302 @@
+[
+  {
+    "FullName": "Ahmed Mohamed",
+    "UserName": "admin",
+    "Email": "admin@myshop.com",
+    "Role": "Admin"
+  },
+  {
+    "FullName": "Sara Ali",
+    "UserName": "admin2",
+    "Email": "admin2@myshop.com",
+    "Role": "Admin"
+  },
+  {
+    "FullName": "Mohamed Hassan",
+    "UserName": "customer1",
+    "Email": "customer1@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Ahmed Hassan",
+    "UserName": "customer2",
+    "Email": "customer2@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Omar Hassan",
+    "UserName": "customer3",
+    "Email": "customer3@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Youssef Hassan",
+    "UserName": "customer4",
+    "Email": "customer4@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Ali Hassan",
+    "UserName": "customer5",
+    "Email": "customer5@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Mahmoud Hassan",
+    "UserName": "customer6",
+    "Email": "customer6@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Khaled Hassan",
+    "UserName": "customer7",
+    "Email": "customer7@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Mostafa Hassan",
+    "UserName": "customer8",
+    "Email": "customer8@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Ibrahim Hassan",
+    "UserName": "customer9",
+    "Email": "customer9@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Hassan Hassan",
+    "UserName": "customer10",
+    "Email": "customer10@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Amr Hassan",
+    "UserName": "customer11",
+    "Email": "customer11@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Karim Hassan",
+    "UserName": "customer12",
+    "Email": "customer12@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Mohamed Ali",
+    "UserName": "customer13",
+    "Email": "customer13@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Ahmed Ali",
+    "UserName": "customer14",
+    "Email": "customer14@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Omar Ali",
+    "UserName": "customer15",
+    "Email": "customer15@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Youssef Ali",
+    "UserName": "customer16",
+    "Email": "customer16@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Ali Ali",
+    "UserName": "customer17",
+    "Email": "customer17@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Mahmoud Ali",
+    "UserName": "customer18",
+    "Email": "customer18@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Khaled Ali",
+    "UserName": "customer19",
+    "Email": "customer19@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Mostafa Ali",
+    "UserName": "customer20",
+    "Email": "customer20@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Ibrahim Ali",
+    "UserName": "customer21",
+    "Email": "customer21@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Hassan Ali",
+    "UserName": "customer22",
+    "Email": "customer22@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Amr Ali",
+    "UserName": "customer23",
+    "Email": "customer23@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Karim Ali",
+    "UserName": "customer24",
+    "Email": "customer24@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Mohamed Mahmoud",
+    "UserName": "customer25",
+    "Email": "customer25@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Ahmed Mahmoud",
+    "UserName": "customer26",
+    "Email": "customer26@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Omar Mahmoud",
+    "UserName": "customer27",
+    "Email": "customer27@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Youssef Mahmoud",
+    "UserName": "customer28",
+    "Email": "customer28@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Ali Mahmoud",
+    "UserName": "customer29",
+    "Email": "customer29@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Mahmoud Mahmoud",
+    "UserName": "customer30",
+    "Email": "customer30@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Khaled Mahmoud",
+    "UserName": "customer31",
+    "Email": "customer31@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Mostafa Mahmoud",
+    "UserName": "customer32",
+    "Email": "customer32@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Ibrahim Mahmoud",
+    "UserName": "customer33",
+    "Email": "customer33@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Hassan Mahmoud",
+    "UserName": "customer34",
+    "Email": "customer34@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Amr Mahmoud",
+    "UserName": "customer35",
+    "Email": "customer35@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Karim Mahmoud",
+    "UserName": "customer36",
+    "Email": "customer36@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Mohamed Salah",
+    "UserName": "customer37",
+    "Email": "customer37@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Ahmed Salah",
+    "UserName": "customer38",
+    "Email": "customer38@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Omar Salah",
+    "UserName": "customer39",
+    "Email": "customer39@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Youssef Salah",
+    "UserName": "customer40",
+    "Email": "customer40@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Ali Salah",
+    "UserName": "customer41",
+    "Email": "customer41@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Mahmoud Salah",
+    "UserName": "customer42",
+    "Email": "customer42@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Khaled Salah",
+    "UserName": "customer43",
+    "Email": "customer43@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Mostafa Salah",
+    "UserName": "customer44",
+    "Email": "customer44@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Ibrahim Salah",
+    "UserName": "customer45",
+    "Email": "customer45@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Hassan Salah",
+    "UserName": "customer46",
+    "Email": "customer46@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Amr Salah",
+    "UserName": "customer47",
+    "Email": "customer47@myshop.com",
+    "Role": "Customer"
+  },
+  {
+    "FullName": "Karim Salah",
+    "UserName": "customer48",
+    "Email": "customer48@myshop.com",
+    "Role": "Customer"
+  }
+]

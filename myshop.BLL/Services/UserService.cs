@@ -1,12 +1,19 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.Json;
+using myshop.BLL.DTOs.Product;
 using myshop.BLL.DTOs.User;
 using myshop.BLL.Interfaces;
+using myshop.BLL.Mapping.Projections;
 using myshop.Common;
+using myshop.DAL.Context;
 using myshop.Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,26 +24,147 @@ namespace myshop.BLL.Services
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IMapper _mapper;
-        public UserService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IMapper mapper)
+        private readonly ApplicationDbContext context;
+
+        public UserService(
+            UserManager<ApplicationUser> userManager,
+            RoleManager<IdentityRole> roleManager,
+            IMapper mapper, ApplicationDbContext context)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _mapper = mapper;
+            this.context = context;
         }
+
         public async Task<IEnumerable<UserReadDto>> GetAllAsync()
+            => await GetAllAsync();
+
+        public async Task<PagedResult<UserReadDto>> GetPagedAsync(DataTableRequestDto requestDto)
         {
-            var users = _userManager.Users.ToList();
-            var usersDtos = new List<UserReadDto>();
-            foreach (var user in users)
+            Expression<Func<ApplicationUser, bool>>? filter = null;
+            
+            if(!string.IsNullOrWhiteSpace(requestDto?.Search))
             {
-                var roles = await _userManager.GetRolesAsync(user);
-                var userDto = _mapper.Map<UserReadDto>(user);
-                userDto.Role = roles.FirstOrDefault()!;
-                userDto.IsLocked = user.LockoutEnd.HasValue &&
-                        user.LockoutEnd > DateTimeOffset.UtcNow;
-                usersDtos.Add(userDto);
+                string searchTerm = requestDto.Search.Trim();
+                filter = 
+                        f =>
+                            f.FullName.Contains(searchTerm) ||
+                            f.UserName!.Contains(searchTerm) ||
+                            f.Email!.Contains(searchTerm);
             }
-            return usersDtos;
+            
+            Func<IQueryable<UserReadDto>, IOrderedQueryable<UserReadDto>>? orderBy = null;
+
+            switch(requestDto?.SortColumn?.ToLower())
+            {
+                case "fullname":
+                    orderBy = requestDto.SortDirection?.ToLower() == "desc"
+                        ? q => q.OrderByDescending(f => f.FullName)
+                        : q => q.OrderBy(f => f.FullName);
+                    break;
+                case "username":
+                    orderBy = requestDto.SortDirection?.ToLower() == "desc"
+                        ? q => q.OrderByDescending(f => f.UserName)
+                        : q => q.OrderBy(f => f.UserName);
+                    break;
+                case "email":
+                    orderBy = requestDto.SortDirection?.ToLower() == "desc"
+                        ? q => q.OrderByDescending(f => f.Email)
+                        : q => q.OrderBy(f => f.Email);
+                    break;
+                case "role":
+                    orderBy = requestDto.SortDirection?.ToLower() == "desc"
+                        ? q => q.OrderByDescending(f => f.Role)
+                        : q => q.OrderBy(f => f.Role);
+                    break;
+                case "islocked":
+                    orderBy = requestDto.SortDirection?.ToLower() == "desc"
+                        ? q => q.OrderByDescending(f => f.IsLocked)
+                        : q => q.OrderBy(f => f.IsLocked);
+                    break;
+
+                default:
+                    orderBy = q => q.OrderBy(x => x.FullName);
+                    break;
+            }
+
+            var query = context.Users
+                .Where(filter ?? (f => true)) // Apply search filter if provided
+                .Join(
+                    context.UserRoles,
+                    u => u.Id,
+                    ur => ur.UserId,
+                    (u, ur) => new { u, ur })
+                .Join(
+                    context.Roles,
+                    x => x.ur.RoleId,
+                    r => r.Id,
+                    (x, r) => new UserReadDto
+                    {
+                        Id = x.u.Id,
+                        UserName = x.u.UserName!,
+                        FullName = x.u.FullName,
+                        Email = x.u.Email!,
+                        IsLocked = x.u.LockoutEnd != null &&
+                                    x.u.LockoutEnd > DateTimeOffset.UtcNow,
+                        Role = r.Name!
+                    });
+
+            // Apply sorting
+            query = orderBy(query);
+            
+            var filteredCount = await query.CountAsync();
+
+            var users = await query
+                .Skip((requestDto.PageNumber - 1) * requestDto.PageSize)
+                .Take(requestDto.PageSize)
+                .ToListAsync();
+
+            return new PagedResult<UserReadDto>
+            {
+                Data = users,
+                TotalCount = await context.Users.CountAsync(),
+                FilteredCount = filteredCount,
+            };
+        }
+
+        public async Task<UserReadDto?> GetByIdAsync(string id)
+        {
+            var user = await context.Users
+                .Where(u => u.Id == id)
+                .Join(
+                    context.UserRoles,
+                    u => u.Id,
+                    ur => ur.UserId,
+                    (u, ur) => new { u, ur })
+                .Join(
+                    context.Roles,
+                    x => x.ur.RoleId,
+                    r => r.Id,
+                    (x, r) => new UserReadDto
+                    {
+                        Id = x.u.Id,
+                        UserName = x.u.UserName!,
+                        FullName = x.u.FullName,
+                        Email = x.u.Email!,
+                        IsLocked = x.u.LockoutEnd != null && 
+                                    x.u.LockoutEnd > DateTimeOffset.UtcNow,
+                        Role = r.Name!
+                    })
+                .SingleOrDefaultAsync();
+
+            return user;
+        }
+
+        public Task<bool> Exists(Expression<Func<ApplicationUser, bool>> expr)
+            => _userManager.Users.AnyAsync(expr);
+
+        public Task<int> CountAsync(Expression<Func<ApplicationUser, bool>>? filter = null)
+        {
+            if(filter is null)
+                return _userManager.Users.CountAsync();
+            return _userManager.Users.CountAsync(filter);
         }
 
         public async Task<bool> PromoteAsync(string id)
@@ -50,8 +178,9 @@ namespace myshop.BLL.Services
             return true;
         }
 
-        public async Task<bool> DemoteAsync(string id, string currentUserId)
+        public async Task<bool> DemoteAsync(string id, ClaimsPrincipal User)
         {
+            var currentUserId = _userManager.GetUserId(User);
             var user = await _userManager.FindByIdAsync(id);
             if (user == null) return false;
 
@@ -65,8 +194,9 @@ namespace myshop.BLL.Services
             return true;
         }
 
-        public async Task<bool> LockAsync(string id, string currentUserId)
+        public async Task<bool> LockAsync(string id, ClaimsPrincipal User)
         {
+            var currentUserId = _userManager.GetUserId(User);
             var user = await _userManager.FindByIdAsync(id);
             if (user == null) return false;
 
@@ -89,14 +219,16 @@ namespace myshop.BLL.Services
             return true;
         }
 
-        public async Task<bool> DeleteAsync(string id, string currentUserId)
+        public async Task<bool> DeleteAsync(string id, ClaimsPrincipal User)
         {
+            var currentUserId = _userManager.GetUserId(User);
             var user = await _userManager.FindByIdAsync(id);
             if (user == null) return false;
             if (user.Id == currentUserId)
                 return false;
-            await _userManager.DeleteAsync(user);
-            return true;
+            var res = await _userManager.DeleteAsync(user);
+
+            return res.Succeeded;
         }
     }
 }

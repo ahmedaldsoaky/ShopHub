@@ -1,0 +1,257 @@
+[
+  {
+    "Name": "Electronics",
+    "Description": "Devices, gadgets, and electronic accessories.",
+    "CreatedTime": "2026-01-01T10:00:00"
+  },
+  {
+    "Name": "Computers",
+    "Description": "Desktop computers, laptops, and computer accessories.",
+    "CreatedTime": "2026-01-02T10:00:00"
+  },
+  {
+    "Name": "Smartphones",
+    "Description": "Mobile phones and smartphone accessories.",
+    "CreatedTime": "2026-01-03T10:00:00"
+  },
+  {
+    "Name": "Tablets",
+    "Description": "Tablets and related accessories.",
+    "CreatedTime": "2026-01-04T10:00:00"
+  },
+  {
+    "Name": "Gaming",
+    "Description": "Gaming consoles, games, and gaming accessories.",
+    "CreatedTime": "2026-01-05T10:00:00"
+  },
+  {
+    "Name": "Books",
+    "Description": "Books across different genres and authors.",
+    "CreatedTime": "2026-01-06T10:00:00"
+  },
+  {
+    "Name": "Office Supplies",
+    "Description": "Office essentials and stationery products.",
+    "CreatedTime": "2026-01-07T10:00:00"
+  },
+  {
+    "Name": "Furniture",
+    "Description": "Home and office furniture collections.",
+    "CreatedTime": "2026-01-08T10:00:00"
+  },
+  {
+    "Name": "Home Decor",
+    "Description": "Decorative items for homes and offices.",
+    "CreatedTime": "2026-01-09T10:00:00"
+  },
+  {
+    "Name": "Kitchen",
+    "Description": "Kitchen appliances and cooking essentials.",
+    "CreatedTime": "2026-01-10T10:00:00"
+  },
+  {
+    "Name": "Appliances",
+    "Description": "Household electrical appliances.",
+    "CreatedTime": "2026-01-11T10:00:00"
+  },
+  {
+    "Name": "Fashion",
+    "Description": "Trending clothing and fashion products.",
+    "CreatedTime": "2026-01-12T10:00:00"
+  },
+  {
+    "Name": "Men Clothing",
+    "Description": "Fashion and clothing for men.",
+    "CreatedTime": "2026-01-13T10:00:00"
+  },
+  {
+    "Name": "Women Clothing",
+    "Description": "Fashion and clothing for women.",
+    "CreatedTime": "2026-01-14T10:00:00"
+  },
+  {
+    "Name": "Kids Clothing",
+    "Description": "Fashion and clothing for children.",
+    "CreatedTime": "2026-01-15T10:00:00"
+  },
+  {
+    "Name": "Shoes",
+    "Description": "Footwear for all ages and occasions.",
+    "CreatedTime": "2026-01-16T10:00:00"
+  },
+  {
+    "Name": "Bags",
+    "Description": "Travel bags, handbags, and backpacks.",
+    "CreatedTime": "2026-01-17T10:00:00"
+  },
+  {
+    "Name": "Jewelry",
+    "Description": "Necklaces, rings, bracelets, and more.",
+    "CreatedTime": "2026-01-18T10:00:00"
+  },
+  {
+    "Name": "Watches",
+    "Description": "Luxury and casual watches.",
+    "CreatedTime": "2026-01-19T10:00:00"
+  },
+  {
+    "Name": "Beauty",
+    "Description": "Beauty and personal care products.",
+    "CreatedTime": "2026-01-20T10:00:00"
+  },
+  {
+    "Name": "Health",
+    "Description": "Health care and wellness products.",
+    "CreatedTime": "2026-01-21T10:00:00"
+  },
+  {
+    "Name": "Sports",
+    "Description": "Sports equipment and accessories.",
+    "CreatedTime": "2026-01-22T10:00:00"
+  },
+  {
+    "Name": "Fitness",
+    "Description": "Fitness equipment and workout gear.",
+    "CreatedTime": "2026-01-23T10:00:00"
+  },
+  {
+    "Name": "Outdoor",
+    "Description": "Camping and outdoor adventure products.",
+    "CreatedTime": "2026-01-24T10:00:00"
+  },
+  {
+    "Name": "Automotive",
+    "Description": "Car accessories and maintenance products.",
+    "CreatedTime": "2026-01-25T10:00:00"
+  },
+  {
+    "Name": "Motorcycles",
+    "Description": "Motorcycle accessories and gear.",
+    "CreatedTime": "2026-01-26T10:00:00"
+  },
+  {
+    "Name": "Tools",
+    "Description": "Hand and power tools for professionals.",
+    "CreatedTime": "2026-01-27T10:00:00"
+  },
+  {
+    "Name": "Garden",
+    "Description": "Gardening tools and outdoor plants.",
+    "CreatedTime": "2026-01-28T10:00:00"
+  },
+  {
+    "Name": "Pet Supplies",
+    "Description": "Food, toys, and accessories for pets.",
+    "CreatedTime": "2026-01-29T10:00:00"
+  },
+  {
+    "Name": "Baby Products",
+    "Description": "Products for babies and toddlers.",
+    "CreatedTime": "2026-01-30T10:00:00"
+  },
+  {
+    "Name": "Toys",
+    "Description": "Educational and entertainment toys.",
+    "CreatedTime": "2026-01-31T10:00:00"
+  },
+  {
+    "Name": "Music",
+    "Description": "Musical instruments and accessories.",
+    "CreatedTime": "2026-02-01T10:00:00"
+  },
+  {
+    "Name": "Movies",
+    "Description": "Movies, DVDs, and Blu-ray collections.",
+    "CreatedTime": "2026-02-02T10:00:00"
+  },
+  {
+    "Name": "Photography",
+    "Description": "Cameras and photography equipment.",
+    "CreatedTime": "2026-02-03T10:00:00"
+  },
+  {
+    "Name": "Audio",
+    "Description": "Speakers, headphones, and audio systems.",
+    "CreatedTime": "2026-02-04T10:00:00"
+  },
+  {
+    "Name": "Video",
+    "Description": "Projectors and video equipment.",
+    "CreatedTime": "2026-02-05T10:00:00"
+  },
+  {
+    "Name": "Networking",
+    "Description": "Routers, switches, and networking devices.",
+    "CreatedTime": "2026-02-06T10:00:00"
+  },
+  {
+    "Name": "Software",
+    "Description": "Operating systems and software licenses.",
+    "CreatedTime": "2026-02-07T10:00:00"
+  },
+  {
+    "Name": "Cloud Services",
+    "Description": "Cloud storage and online services.",
+    "CreatedTime": "2026-02-08T10:00:00"
+  },
+  {
+    "Name": "Education",
+    "Description": "Educational materials and learning resources.",
+    "CreatedTime": "2026-02-09T10:00:00"
+  },
+  {
+    "Name": "Art",
+    "Description": "Art supplies and creative materials.",
+    "CreatedTime": "2026-02-10T10:00:00"
+  },
+  {
+    "Name": "Crafts",
+    "Description": "Crafting tools and DIY supplies.",
+    "CreatedTime": "2026-02-11T10:00:00"
+  },
+  {
+    "Name": "Travel",
+    "Description": "Travel accessories and luggage.",
+    "CreatedTime": "2026-02-12T10:00:00"
+  },
+  {
+    "Name": "Food",
+    "Description": "Packaged food and grocery items.",
+    "CreatedTime": "2026-02-13T10:00:00"
+  },
+  {
+    "Name": "Beverages",
+    "Description": "Soft drinks, juices, and beverages.",
+    "CreatedTime": "2026-02-14T10:00:00"
+  },
+  {
+    "Name": "Organic Products",
+    "Description": "Organic and eco-friendly products.",
+    "CreatedTime": "2026-02-15T10:00:00"
+  },
+  {
+    "Name": "Industrial",
+    "Description": "Industrial equipment and machinery.",
+    "CreatedTime": "2026-02-16T10:00:00"
+  },
+  {
+    "Name": "Safety Equipment",
+    "Description": "Protective equipment and safety gear.",
+    "CreatedTime": "2026-02-17T10:00:00"
+  },
+  {
+    "Name": "Medical Supplies",
+    "Description": "Medical equipment and healthcare supplies.",
+    "CreatedTime": "2026-02-18T10:00:00"
+  },
+  {
+    "Name": "Gift Items",
+    "Description": "Perfect gifts for all occasions.",
+    "CreatedTime": "2026-02-19T10:00:00"
+  },
+  {
+    "Name": "Seasonal Products",
+    "Description": "Products for holidays and seasonal events.",
+    "CreatedTime": "2026-02-20T10:00:00"
+  }
+]

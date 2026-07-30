@@ -566,10 +566,12 @@ C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Web\o
 C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Web\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Web\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Web\obj\Debug\net8.0\swae.build.ex.cache
-C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Web\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Web\obj\Debug\net8.0\myshop.Web.csproj.Up2Date
 C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Web\obj\Debug\net8.0\myshop.Web.dll
 C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Web\obj\Debug\net8.0\refint\myshop.Web.dll
 C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Web\obj\Debug\net8.0\myshop.Web.pdb
 C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Web\obj\Debug\net8.0\myshop.Web.genruntimeconfig.cache
 C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Web\obj\Debug\net8.0\ref\myshop.Web.dll
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Web\bin\Debug\net8.0\Seeds\Json\categories.json
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Web\bin\Debug\net8.0\Seeds\Json\products.json
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.Web\bin\Debug\net8.0\Seeds\Json\users.json

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using myshop.BLL.Interfaces;
+using myshop.BLL.Services;
 using myshop.Common;
 using myshop.Entities.Models;
 
@@ -13,14 +14,10 @@ namespace myshop.Web.Controllers.Admin
 
     {
         private readonly IUserService _userService;
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IMapper _mapper;
 
         public UserController(IUserService userService, UserManager<ApplicationUser> userManager, IMapper mapper)
         {
             _userService = userService;
-            _userManager = userManager;
-            _mapper = mapper;
         }
 
         public IActionResult Index()
@@ -28,13 +25,16 @@ namespace myshop.Web.Controllers.Admin
             return View();
         }
 
-        public async Task<IActionResult> GetData()
+        public async Task<IActionResult> GetData(DataTableRequestDto requestDto)
         {
-            var users = await _userService.GetAllAsync();
+            var PagedUsers = await _userService.GetPagedAsync(requestDto);
 
             return Json(new
             {
-                data = users
+                draw = Request.Query["draw"],
+                data = PagedUsers.Data,
+                recordsTotal = PagedUsers.TotalCount,
+                recordsFiltered = PagedUsers.FilteredCount
             });
         }
 
@@ -62,8 +62,7 @@ namespace myshop.Web.Controllers.Admin
         [HttpPost]
         public async Task<IActionResult> Demote(string id)
         {
-            var currentUserId = _userManager.GetUserId(User);
-            var result = await _userService.DemoteAsync(id, currentUserId!);
+            var result = await _userService.DemoteAsync(id, User);
 
             if (!result)
             {
@@ -84,8 +83,7 @@ namespace myshop.Web.Controllers.Admin
         [HttpPost]
         public async Task<IActionResult> Lock(string id)
         {
-            var currentUserId = _userManager.GetUserId(User);
-            var result = await _userService.LockAsync(id, currentUserId!);
+            var result = await _userService.LockAsync(id, User);
 
             if (!result)
             {
@@ -127,9 +125,7 @@ namespace myshop.Web.Controllers.Admin
         [HttpDelete]
         public async Task<IActionResult> Delete(string id)
         {
-            var currentUserId = _userManager.GetUserId(User);
-
-            var result = await _userService.DeleteAsync(id, currentUserId!);
+            var result = await _userService.DeleteAsync(id, User);
 
             if (!result)
             {

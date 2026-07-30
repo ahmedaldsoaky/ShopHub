@@ -124,10 +124,17 @@
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="ImgPath" class="form-label">
+                    <label asp-for="ImgFile" class="form-label">
                         <i class="fa-solid fa-image me-1"></i> Product Image
                     </label>
-                    <input type="file" name="file" id="imgfile" class="form-control" accept="image/*" onchange="fillimg(event);" />
+
+                    <input asp-for="ImgFile"
+                           type="file"
+                           class="form-control"
+                           accept="image/*"
+                           onchange="fillimg(event);" />
+
+                    <span asp-validation-for="ImgFile" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">

@@ -11,24 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
-    builder.Configuration.GetConnectionString("DefaultConnection")
-    )) ;
 
-builder.Services.AddIdentity<ApplicationUser,IdentityRole>(
-    options=>
-    {
-        options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(4);
-        options.Lockout.MaxFailedAccessAttempts = 5;
-        options.Lockout.AllowedForNewUsers = true;
-        options.Password.RequireDigit = false;
-        options.Password.RequireUppercase = false;
-        options.Password.RequireLowercase = true;
-        options.Password.RequireNonAlphanumeric = false;
-        options.Password.RequiredLength = 4;
-    }
-    ).AddDefaultTokenProviders()
-    .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddAuthorization(options =>
 {
@@ -45,10 +28,10 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = "/Account/AccessDenied";
 });
 
-///
-/// 
-/// ///  Dependency Injection for UnitOfWork and Repositories
-builder.Services.AddDataAccess();
+///    ==== -->>>   ///  Dependency Injection for UnitOfWork and Repositories
+builder.Services.AddDataAccess(builder.Configuration);
+
+
 
 builder.Services.AddAutoMapper(
     cfg => { },
@@ -58,20 +41,25 @@ builder.Services.AddAutoMapper(
 builder.Services.AddHttpContextAccessor();
 
 
-builder.Services.AddDistributedMemoryCache();
+builder.Services.AddMemoryCache();
+
 builder.Services.AddSession();
+
 var app = builder.Build();
+
+Console.WriteLine(app.Environment.WebRootPath);
+Console.WriteLine(app.Environment.ContentRootPath);
+
 // ask for it
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     db.Database.Migrate();
     await IdentitySeeder.SeedRolesAsync(scope.ServiceProvider);
-    await IdentitySeeder.SeedAdminAsync(scope.ServiceProvider);
+    await IdentitySeeder.SeedUsersAsync(scope.ServiceProvider);
+    await DataSeeder.SeedAsync(scope.ServiceProvider);
+
 }
-
-
-
 
 
 // Configure the HTTP request pipeline.

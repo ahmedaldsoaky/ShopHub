@@ -8,7 +8,7 @@ using myshop.DAL.Context;
 
 #nullable disable
 
-namespace myshop.Web.Migrations
+namespace myshop.DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -246,36 +246,6 @@ namespace myshop.Web.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedTime = new DateTime(2026, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Electronic devices and accessories",
-                            Name = "Electronics"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedTime = new DateTime(2026, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Clothing and accessories",
-                            Name = "Fashion"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedTime = new DateTime(2026, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Books and educational materials",
-                            Name = "Books"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedTime = new DateTime(2026, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Home and kitchen products",
-                            Name = "Home"
-                        });
                 });
 
             modelBuilder.Entity("myshop.Entities.Models.OrderDetail", b =>
@@ -402,53 +372,6 @@ namespace myshop.Web.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CategoryId = 1,
-                            Description = "Lenovo IdeaPad 5",
-                            ImgPath = "Images/Products/laptop.jpg",
-                            Name = "Laptop Lenovo",
-                            Price = 25000m
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CategoryId = 1,
-                            Description = "Logitech Wireless Mouse",
-                            ImgPath = "Images/Products/mouse.jpg",
-                            Name = "Wireless Mouse",
-                            Price = 600m
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CategoryId = 2,
-                            Description = "100% Cotton",
-                            ImgPath = "Images/Products/tshirt.jpg",
-                            Name = "Men T-Shirt",
-                            Price = 350m
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CategoryId = 3,
-                            Description = "Robert C. Martin",
-                            ImgPath = "Images/Products/cleancode.jpg",
-                            Name = "Clean Code",
-                            Price = 850m
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CategoryId = 4,
-                            Description = "Automatic Coffee Machine",
-                            ImgPath = "Images/Products/coffee.jpg",
-                            Name = "Coffee Maker",
-                            Price = 3200m
-                        });
                 });
 
             modelBuilder.Entity("myshop.Entities.Models.ShoppingCart", b =>

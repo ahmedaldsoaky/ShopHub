@@ -1,73 +1,93 @@
 ﻿@{
     ViewBag.PageTitle = "User Management";
-    ViewBag.CardTitle = "Users";
+    ViewBag.CardTitle = "View Users";
     Layout = "~/Views/Shared/_Dashboard.cshtml";
 }
 
-<div class="row">
+<div class="custom-card">
 
-    <div class="col-12">
-
-        <div class="card card-primary card-outline shadow-sm">
-
-            <div class="card-header">
-
-                <div class="d-flex justify-content-between align-items-center">
-
-                    <h3 class="card-title">
-                        <i class="fas fa-users mr-2"></i>
-                        User Management
-                    </h3>
-
-                    <div>
-
-                        <a asp-action="Register"
-                           class="btn btn-primary">
-
-                            <i class="fas fa-user-plus mr-1"></i>
-                            Add User
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="card-body">
-
-                <div class="table-responsive">
-
-                    <table id="mytable"
-                           class="table table-striped table-hover table-bordered align-middle w-100">
-
-                        <thead class="thead-light">
-
-                            <tr>
-
-                                <th>Full Name</th>
-                                <th>User Name</th>
-                                <th>Email</th>
-                                <th>Role</th>
-                                <th>Status</th>
-                                <th style="width:220px">Actions</th>
-
-                            </tr>
-
-                        </thead>
-
-                    </table>
-
-                </div>
-
-            </div>
-
-        </div>
-
+    <div class="custom-card-title">
+        <i class="fa-solid fa-users me-2"></i>
+        Users List
     </div>
 
+    <div class="top-btn">
+        <a asp-action="Register" class="btn btn-primary">
+            <i class="fa-solid fa-user-plus me-1"></i>
+            Add User
+        </a>
+    </div>
+
+    <table id="mytable"
+           class="display table-hover"
+           style="width:100%">
+
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th style="width:170px">Actions</th>
+            </tr>
+        </thead>
+
+    </table>
+
 </div>
+
+<style>
+
+    .custom-card {
+        background: rgba(255,255,255,.75);
+        backdrop-filter: blur(12px);
+        border-radius: 18px;
+        border: 1px solid rgba(160,173,186,.35);
+        box-shadow: 0 15px 35px rgba(0,0,0,.12);
+        padding: 28px;
+    }
+
+    .custom-card-title {
+        background: linear-gradient(135deg,#1e3a8a,#3b82f6);
+        padding: 18px;
+        border-radius: 14px;
+        margin-bottom: 22px;
+        color: white;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    .top-btn {
+        text-align: right;
+        margin-bottom: 18px;
+    }
+
+    .btn-primary {
+        border: none;
+        border-radius: 10px;
+        padding: 10px 22px;
+        background: linear-gradient(135deg,#1e40af,#2563eb);
+    }
+
+    #mytable thead th {
+        background: #1e40af !important;
+        color: white !important;
+        border: none !important;
+        padding: 14px !important;
+    }
+
+    #mytable tbody td {
+        padding: 14px !important;
+        vertical-align: middle;
+    }
+
+    #mytable tbody tr:hover td {
+        background: #eef4ff !important;
+    }
+
+</style>
 
 @section Scripts
 {

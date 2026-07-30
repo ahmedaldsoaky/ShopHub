@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using myshop.Entities.Models;
+using myshop.Web.Seeds.Dtos;
+using System.Text.Json;
+
 
 namespace myshop.Web.Seeds;
 
@@ -25,25 +28,46 @@ public static class IdentitySeeder
             }
         }
     }
-    public static async Task SeedAdminAsync(IServiceProvider serviceProvider)
+
+    public static async Task SeedUsersAsync(IServiceProvider serviceProvider)
     {
         var userManager =
             serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
-        var admin = await userManager.FindByEmailAsync("admin@gmail.com");
+        var path = Path.Combine(
+            AppContext.BaseDirectory,
+            "Seeds",
+            "Json",
+            "users.json");
 
-        if (admin is null)
+        var json = await File.ReadAllTextAsync(path);
+
+        var users = JsonSerializer.Deserialize<List<UserSeedDto>>(json);
+
+        if (users is null)
+            return;
+
+        const string defaultPassword = "P@ssw0rd123";
+
+        foreach (var item in users)
         {
-            admin = new ApplicationUser
+            if (await userManager.FindByEmailAsync(item.Email) is not null)
+                continue;
+
+            var user = new ApplicationUser
             {
-                UserName = "admin@gmail.com",
-                Email = "admin@gmail.com",
-                FullName = "System Admin"
+                FullName = item.FullName,
+                UserName = item.UserName,
+                Email = item.Email,
+                EmailConfirmed = true
             };
 
-            await userManager.CreateAsync(admin, "Admin123");
+            var result = await userManager.CreateAsync(user, defaultPassword);
 
-            await userManager.AddToRoleAsync(admin, "Admin");
+            if (result.Succeeded)
+            {
+                await userManager.AddToRoleAsync(user, item.Role);
+            }
         }
     }
 }
