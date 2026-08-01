@@ -44,6 +44,9 @@
                 data: "email"
             },
             {
+                data: "phoneNumber"
+            },
+            {
                 data: "role",
                 className: "text-center",
                 render: function (data) {

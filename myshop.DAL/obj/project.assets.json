@@ -1052,7 +1052,10 @@
         },
         "runtime": {
           "bin/placeholder/myshop.Common.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "myshop.Domain/1.0.0": {
         "type": "project",

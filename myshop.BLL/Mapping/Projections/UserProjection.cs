@@ -19,6 +19,7 @@ namespace myshop.BLL.Mapping.Projections
                 UserName = u.UserName!,
                 FullName = u.FullName,
                 Email = u.Email!,
+                PhoneNumber = u.PhoneNumber!,
                 IsLocked = u.LockoutEnd != null && 
                             u.LockoutEnd > DateTimeOffset.UtcNow,
             };

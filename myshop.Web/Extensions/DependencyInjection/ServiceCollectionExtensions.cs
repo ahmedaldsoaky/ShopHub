@@ -45,7 +45,9 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<ICategoryService, CategoryService>();
             
             services.AddScoped<IUserService, UserService>();
-            
+
+            services.AddScoped<ICartService, CartService>();
+
             services.AddScoped<IImageService, ImageService>();
             return services;
         }

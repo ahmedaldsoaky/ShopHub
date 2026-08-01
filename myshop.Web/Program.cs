@@ -41,9 +41,14 @@ builder.Services.AddAutoMapper(
 builder.Services.AddHttpContextAccessor();
 
 
-builder.Services.AddMemoryCache();
+builder.Services.AddDistributedMemoryCache();
 
-builder.Services.AddSession();
+builder.Services.AddSession(options =>
+{
+    options.IOTimeout = TimeSpan.FromMinutes(1);
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+});
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 

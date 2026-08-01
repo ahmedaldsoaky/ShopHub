@@ -34,6 +34,7 @@ namespace myshop.Web.Controllers.Admin
             {
                 FullName = model.FullName,
                 UserName = model.UserName,
+                PhoneNumber = model.PhoneNumber,
                 Email = model.Email
             };
 
@@ -95,6 +96,5 @@ namespace myshop.Web.Controllers.Admin
             return RedirectToAction(nameof(Login));
         }
 
-        
     }
 }

@@ -51,6 +51,7 @@ namespace myshop.BLL.Services
                         f =>
                             f.FullName.Contains(searchTerm) ||
                             f.UserName!.Contains(searchTerm) ||
+                            f.PhoneNumber!.Contains(searchTerm) ||
                             f.Email!.Contains(searchTerm);
             }
             
@@ -72,6 +73,11 @@ namespace myshop.BLL.Services
                     orderBy = requestDto.SortDirection?.ToLower() == "desc"
                         ? q => q.OrderByDescending(f => f.Email)
                         : q => q.OrderBy(f => f.Email);
+                    break;
+                case "phonenumber":
+                    orderBy = requestDto.SortDirection?.ToLower() == "desc"
+                        ? q => q.OrderByDescending(f => f.PhoneNumber)
+                        : q => q.OrderBy(f => f.PhoneNumber);
                     break;
                 case "role":
                     orderBy = requestDto.SortDirection?.ToLower() == "desc"
@@ -106,6 +112,7 @@ namespace myshop.BLL.Services
                         UserName = x.u.UserName!,
                         FullName = x.u.FullName,
                         Email = x.u.Email!,
+                        PhoneNumber = x.u.PhoneNumber!,
                         IsLocked = x.u.LockoutEnd != null &&
                                     x.u.LockoutEnd > DateTimeOffset.UtcNow,
                         Role = r.Name!

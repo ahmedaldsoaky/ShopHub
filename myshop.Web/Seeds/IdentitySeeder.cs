@@ -59,6 +59,7 @@ public static class IdentitySeeder
                 FullName = item.FullName,
                 UserName = item.UserName,
                 Email = item.Email,
+                PhoneNumber = item.PhoneNumber,
                 EmailConfirmed = true
             };
 

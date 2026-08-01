@@ -205,7 +205,10 @@
         },
         "runtime": {
           "bin/placeholder/myshop.Common.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },

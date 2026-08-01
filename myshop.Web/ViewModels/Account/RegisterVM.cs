@@ -21,6 +21,14 @@ namespace myshop.Web.ViewModels.Account
         [Display(Name = "Email Address")]
         public string Email { get; set; } = string.Empty;
 
+        [Required(ErrorMessage = "Phone number is required.")]
+        [StringLength(11, ErrorMessage = "Phone number must be exactly 11 digits.")]
+        [RegularExpression(@"^01\d{9}$",
+            ErrorMessage = "Phone number must start with 01 and contain exactly 11 digits.")]
+        [Display(Name = "Phone Number")]
+        public string PhoneNumber { get; set; } = string.Empty;
+
+
         [Required(ErrorMessage = "Password is required.")]
         [DataType(DataType.Password)]
         [MinLength(6, ErrorMessage = "Password must be at least 6 characters.")]
