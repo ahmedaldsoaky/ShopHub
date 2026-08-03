@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using myshop.BLL.DTOs.Category;
 using myshop.BLL.Interfaces;
@@ -7,6 +8,8 @@ using myshop.Web.ViewModels.Category;
 
 namespace myshop.Web.Areas.Admin.Controllers
 {
+    [Authorize(Roles = Roles.Admin)]
+    [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly ICategoryService _categoryService;
@@ -26,7 +29,7 @@ namespace myshop.Web.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetData(DataTableRequestDto requestDto)
+        public async Task<IActionResult> GetData(PagedRequestDto requestDto)
         {
             var pagedCategories = await _categoryService.GetPagedAsync(requestDto);
 

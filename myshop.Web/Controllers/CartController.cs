@@ -18,19 +18,22 @@ namespace myshop.Web.Controllers
         
         public IActionResult Index()
         {
-            var model = new CartViewModel(){
+            return View(new CartVM()
+            {
                 Items = _cartService.GetCart(),
-                OrderTotal = _cartService.GetOrderTotal()
-            };
-            return View(model);
+                OrderTotal = _cartService.GetOrderTotal(),
+                TotalItems = _cartService.GetTotalItems()
+            });
         }
 
-        public async Task<IActionResult> Add(int productId)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Add(int productId, string? returnUrl)
         {
             var product = await _productService.GetByIdAsync(productId);
             if (product is null)
                 return NotFound();
-
+            
             _cartService.AddItem(new CartItemDto
             {
                 ProductId = productId,
@@ -39,32 +42,44 @@ namespace myshop.Web.Controllers
                 Quantity = 1,
                 ImageUrl = product.ImgPath
             });
+
+            TempData["Success"] = $"{product.Name} added to cart.";
+
+            if (!string.IsNullOrWhiteSpace(returnUrl))
+                return LocalRedirect(returnUrl);
+
             return RedirectToAction(nameof(Index));
         }
-
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Remove(int productId)
         {
-            var product = await _productService.GetByIdAsync(productId);
-            if (product is null)
-                return NotFound();
             _cartService.RemoveItem(productId);
+
             return RedirectToAction(nameof(Index));
         }
-
-        public IActionResult Increase(int id)
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Increase(int productId)
         {
-            _cartService.IncreaseQuantity(id);
+            _cartService.IncreaseQuantity(productId);
 
             return RedirectToAction(nameof(Index));
         }
-
-        public IActionResult Decrease(int id)
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Decrease(int productId)
         {
-            _cartService.DecreaseQuantity(id);
+            _cartService.DecreaseQuantity(productId);
 
             return RedirectToAction(nameof(Index));
         }
-
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Clear()
         {
             _cartService.ClearCart();

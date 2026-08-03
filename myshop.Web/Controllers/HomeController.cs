@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using myshop.BLL.Interfaces;
+using myshop.Common;
 using myshop.Entities.Models;
 using System.Diagnostics;
 
@@ -7,15 +9,19 @@ namespace myshop.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IProductService _productService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IProductService productService, ILogger<HomeController> logger)
         {
             _logger = logger;
+            _productService = productService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var products = await _productService.GetLatestProductsAsync(8);
+
+            return View(products);
         }
 
         public IActionResult Privacy()

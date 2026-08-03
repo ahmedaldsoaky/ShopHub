@@ -27,6 +27,7 @@ wwwroot\css\alt\adminlte.plugins.css
 wwwroot\css\alt\adminlte.plugins.css.map
 wwwroot\css\alt\adminlte.plugins.min.css
 wwwroot\css\alt\adminlte.plugins.min.css.map
+wwwroot\css\shop.css
 wwwroot\css\site.css
 wwwroot\css\summary.css
 wwwroot\customer\assets\favicon.ico

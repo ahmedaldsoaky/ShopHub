@@ -13,7 +13,7 @@
         order: [[0, "asc"]],
 
         ajax: {
-            url: "/User/GetData",
+            url: "/Admin/User/GetData",
             type: "GET",
 
             data: function (d) {

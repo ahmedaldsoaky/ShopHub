@@ -1,0 +1,266 @@
+@*
+    _Layout.cshtml
+*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MyShop</title>
+
+    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/myshop.Web.styles.css" asp-append-version="true" />
+
+    <style>
+
+            body {
+                background: linear-gradient(to bottom,#f8fafc,#eef4ff);
+                color: #212529;
+                min-height: 100vh;
+            }
+
+            /* ===================== Navbar ===================== */
+
+            .navbar {
+                background: #fff;
+                box-shadow: 0 2px 15px rgba(0,0,0,.08);
+                padding: .9rem 0;
+            }
+
+            .navbar-brand {
+                font-size: 1.7rem;
+                font-weight: 700;
+                color: #2563eb !important;
+            }
+
+            .nav-link {
+                font-weight: 600;
+                color: #374151 !important;
+                margin: 0 8px;
+                position: relative;
+                transition: .3s;
+            }
+
+                .nav-link::after {
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    left: 0;
+                    bottom: -5px;
+                    height: 2px;
+                    background: #2563eb;
+                    transition: .3s;
+                }
+
+                .nav-link:hover {
+                    color: #2563eb !important;
+                }
+
+                    .nav-link:hover::after {
+                        width: 100%;
+                    }
+
+            .search-box {
+                width: 260px;
+            }
+
+            /* ===================== Buttons ===================== */
+
+            .btn-account {
+                border-radius: 10px;
+                padding: 8px 18px;
+            }
+
+            .btn-cart {
+                border-radius: 10px;
+                padding: 8px 18px;
+            }
+
+            /* ===================== Main ===================== */
+
+            main {
+                margin: 40px auto;
+            }
+
+            /* ===================== Cards ===================== */
+
+            .card {
+                border: none;
+                border-radius: 18px;
+                box-shadow: 0 5px 20px rgba(0,0,0,.08);
+                transition: .3s;
+            }
+
+                .card:hover {
+                    transform: translateY(-6px);
+                    box-shadow: 0 12px 30px rgba(0,0,0,.12);
+                }
+
+                .card img {
+                    object-fit: cover;
+                }
+
+            /* ===================== Footer ===================== */
+
+            footer {
+                background: white;
+                border-top: 1px solid #e5e7eb;
+                color: #6b7280;
+                padding: 18px 0;
+            }
+    </style>
+
+</head>
+
+<body class="d-flex flex-column">
+
+    <header>
+
+        <nav class="navbar navbar-expand-lg sticky-top">
+
+            <div class="container-xl">
+
+                <a class="navbar-brand"
+                   asp-controller="Product"
+                   asp-action="Shop">
+
+                    <i class="fas fa-shopping-bag me-2"></i>
+
+                    MyShop
+
+                </a>
+
+                <button class="navbar-toggler"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <div class="collapse navbar-collapse"
+                     id="navbarContent">
+
+                    <ul class="navbar-nav me-auto">
+
+                        <li class="nav-item">
+
+                            <a asp-controller="Home"
+                               asp-action="Index"
+                               class="nav-link">
+
+                                Home
+
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a asp-controller="Product"
+                               asp-action="Shop"
+                               class="nav-link">
+
+                                Shop
+
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a asp-controller="Cart"
+                               asp-action="Index"
+                               class="nav-link">
+
+                                Cart
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                    <form class="d-flex me-3">
+
+                        <input class="form-control search-box"
+                               type="search"
+                               placeholder="Search products..." />
+
+                    </form>
+
+                    <a asp-controller="Cart"
+                       asp-action="Index"
+                       class="btn btn-outline-primary btn-cart position-relative me-2">
+
+                        <i class="fas fa-shopping-cart"></i>
+
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+
+                            0
+
+                        </span>
+
+                    </a>
+
+                    <a asp-controller="Account"
+                       asp-action="Login"
+                       class="btn btn-primary btn-account">
+
+                        <i class="fas fa-user me-1"></i>
+
+                        Account
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main class="container flex-grow-1">
+
+        @RenderBody()
+
+    </main>
+
+    <footer class="mt-auto">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-md-6">
+
+                    © @DateTime.Now.Year <strong>MyShop</strong>. All Rights Reserved.
+
+                </div>
+
+                <div class="col-md-6 text-md-end mt-2 mt-md-0">
+
+                    Built with ❤️ using ASP.NET Core MVC
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+﻿@if (TempData["Create"] != null || TempData["Update"] != null || TempData["Delete"] != null)
+{
+    <!--
+      NOTE: If jQuery and Toastr are already loaded in your _Layout.cshtml,
+      you should delete the next two <script src="..."> lines to prevent conflicts.
+    -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <script>
+        @if (TempData["Create"] != null)
+        {
+            @:toastr.success('@TempData["Create"]');
+        }
+
+        @if (TempData["Update"] != null)
+        {
+            @:toastr.info('@TempData["Update"]');
+        }
+
+        @if (TempData["Delete"] != null)
+        {
+            @:toastr.error('@TempData["Delete"]');
+        }
+    </script>
+}

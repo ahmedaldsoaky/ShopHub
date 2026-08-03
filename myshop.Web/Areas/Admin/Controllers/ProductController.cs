@@ -14,6 +14,8 @@ using myshop.Web.ViewModels.Product;
 
 namespace myshop.Web.Areas.Admin.Controllers
 {
+    [Authorize(Roles = Roles.Admin)]
+    [Area("Admin")]
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
@@ -37,7 +39,7 @@ namespace myshop.Web.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetData(DataTableRequestDto requestDto)
+        public async Task<IActionResult> GetData(PagedRequestDto requestDto)
         {
             var pagedProducts = await _productService.GetPagedAsync(requestDto);
 
@@ -51,17 +53,16 @@ namespace myshop.Web.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        [Authorize(policy: "AdminOnly")]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             ProductCreateVM productVM = new ProductCreateVM()
             {
-                Categories = _categoryService.GetAllAsync()
-                .Result.Select(x => new SelectListItem
-                {
-                    Text = x.Name,
-                    Value = x.Id.ToString()
-                })
+                Categories = (await _categoryService.GetAllAsync())
+                    .Select(x => new SelectListItem
+                    {
+                        Text = x.Name,
+                        Value = x.Id.ToString()
+                    })
             };
             return View(productVM);
         }
@@ -81,11 +82,10 @@ namespace myshop.Web.Areas.Admin.Controllers
                 
             TempData["Create"] = "Item has Created Successfully";
                 
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
         
         [HttpGet]
-        [Authorize(Roles = Roles.Admin)]
         public async Task<IActionResult> Edit(int id)
         {
             var product = await _productService.GetByIdAsync(id);
@@ -149,7 +149,6 @@ namespace myshop.Web.Areas.Admin.Controllers
         }
 
         [HttpDelete]
-        [Authorize(Roles = Roles.Admin)]
         public async Task<IActionResult> Delete(int id)
         {
             var product = await _productService.GetByIdAsync(id);

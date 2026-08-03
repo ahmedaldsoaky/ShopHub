@@ -1,6 +1,6 @@
 ﻿@using myshop.Web.ViewModels
-@model CartViewModel
-
+@model CartVM
+@Html.AntiForgeryToken()
 @{
     ViewData["Title"] = "Shopping Cart";
 }
@@ -15,12 +15,18 @@
 
         @if (Model.Items.Any())
         {
-            <a asp-action="Clear"
-               class="btn btn-outline-danger"
-               onclick="return confirm('Are you sure you want to clear your cart?')">
-                <i class="bi bi-trash"></i>
-                Clear Cart
-            </a>
+            <form asp-action="Clear"
+                  method="post"
+                  class="d-inline">
+
+                <button type="submit"
+                        class="btn btn-outline-danger">
+
+                    Clear Cart
+
+                </button>
+
+            </form>
         }
     </div>
 
@@ -34,7 +40,7 @@
                 Start shopping and add some products.
             </p>
 
-            <a asp-controller="Product"
+            <a asp-controller="Shop"
                asp-action="Index"
                class="btn btn-primary">
                 Continue Shopping
@@ -73,7 +79,7 @@
 
                                     <td width="90">
 
-                                        <img src="@item.ImageUrl"
+                                        <img src="/@item.ImageUrl"
                                              class="img-thumbnail"
                                              style="width:70px;height:70px;object-fit:cover;" />
 
@@ -91,25 +97,46 @@
 
                                         <div class="btn-group">
 
-                                            <a asp-action="Decrease"
-                                               asp-route-id="@item.ProductId"
-                                               class="btn btn-outline-secondary btn-sm">
+                                            <form asp-action="Decrease"
+                                                  method="post"
+                                                  class="d-inline">
 
-                                                -
+                                                <input type="hidden"
+                                                       name="productId"
+                                                       value="@item.ProductId" />
 
-                                            </a>
+                                                <button type="submit"
+                                                        class="btn btn-outline-secondary btn-sm">
 
-                                            <button class="btn btn-light btn-sm" disabled>
+                                                    -
+
+                                                </button>
+
+                                            </form>
+
+                                            <button class="btn btn-light btn-sm"
+                                                    disabled>
+
                                                 @item.Quantity
+
                                             </button>
 
-                                            <a asp-action="Increase"
-                                               asp-route-id="@item.ProductId"
-                                               class="btn btn-outline-secondary btn-sm">
+                                            <form asp-action="Increase"
+                                                  method="post"
+                                                  class="d-inline">
 
-                                                +
+                                                <input type="hidden"
+                                                       name="productId"
+                                                       value="@item.ProductId" />
 
-                                            </a>
+                                                <button type="submit"
+                                                        class="btn btn-outline-secondary btn-sm">
+
+                                                    +
+
+                                                </button>
+
+                                            </form>
 
                                         </div>
 
@@ -121,14 +148,22 @@
 
                                     <td class="text-center">
 
-                                        <a asp-action="Remove"
-                                           asp-route-id="@item.ProductId"
-                                           class="btn btn-outline-danger btn-sm"
-                                           onclick="return confirm('Remove this product?')">
+                                        <form asp-action="Remove"
+                                              method="post"
+                                              class="d-inline">
 
-                                            <i class="bi bi-trash"></i>
+                                            <input type="hidden"
+                                                   name="productId"
+                                                   value="@item.ProductId" />
 
-                                        </a>
+                                            <button type="submit"
+                                                    class="btn btn-danger">
+
+                                                Remove
+
+                                            </button>
+
+                                        </form>
 
                                     </td>
 

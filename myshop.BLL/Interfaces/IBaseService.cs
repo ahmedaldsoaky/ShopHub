@@ -13,7 +13,7 @@ namespace myshop.BLL.Interfaces
 {
     public interface IBaseService<TDto, TEntity, TKey>
     {
-        Task<PagedResult<TDto>> GetPagedAsync(DataTableRequestDto? requestDto);
+        Task<PagedResult<TDto>> GetPagedAsync(PagedRequestDto? requestDto);
         Task<IEnumerable<TDto>> GetAllAsync();
         Task<TDto?> GetByIdAsync(TKey id);
 

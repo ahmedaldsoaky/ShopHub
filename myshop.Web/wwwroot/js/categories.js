@@ -15,7 +15,7 @@ $(function () {
         order: [[0, "asc"]],
 
         ajax: {
-            url: "/Category/GetData",
+            url: "/Admin/Category/GetData",
             type: "GET",
 
             data: function (d) {
@@ -85,7 +85,7 @@ $(function () {
                     return `
                         <div class="btn-group">
 
-                            <a href="/Category/Edit/${id}"
+                            <a href="/Admin/Category/Edit/${id}"
                                class="btn btn-outline-primary btn-sm"
                                title="Edit">
 
@@ -94,7 +94,7 @@ $(function () {
                             </a>
 
                             <button
-                                onclick="Delete('/Category/Delete/${id}')"
+                                onclick="Delete('/Admin/Category/Delete/${id}')"
                                 class="btn btn-outline-danger btn-sm"
                                 title="Delete">
 

@@ -1,5 +1,5 @@
 @*
-    Improved _Layout.cshtml
+    _Layout.cshtml
 *@
 <!DOCTYPE html>
 <html lang="en">
@@ -9,152 +9,271 @@
     <title>@ViewData["Title"] - MyShop</title>
 
     <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css" />
-
-    <link rel="stylesheet" href="~/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" />
-    <link rel="stylesheet" href="~/plugins/datatables-responsive/css/responsive.bootstrap4.min.css" />
-    <link rel="stylesheet" href="~/plugins/datatables-buttons/css/buttons.bootstrap4.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/shop.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/myshop.Web.styles.css" asp-append-version="true" />
 
     <style>
-        body{
-            background:#f8f9fa;
-            color:#212529;
-        }
 
-        .navbar{
-            background:#fff !important;
-            box-shadow:0 2px 12px rgba(0,0,0,.08);
-            padding:.85rem 0;
-        }
+            body {
+                background: linear-gradient(to bottom,#f8fafc,#eef4ff);
+                color: #212529;
+                min-height: 100vh;
+            }
 
-        .navbar-brand{
-            font-size:1.5rem;
-            font-weight:700;
-            color:#0d6efd !important;
-        }
+            /* ===================== Navbar ===================== */
 
-        .navbar-brand:hover{
-            color:#0a58ca !important;
-        }
+            .navbar {
+                background: #fff;
+                box-shadow: 0 2px 15px rgba(0,0,0,.08);
+                padding: .9rem 0;
+            }
 
-        .nav-link{
-            font-weight:600;
-            margin-left:12px;
-            transition:.2s;
-        }
+            .navbar-brand {
+                font-size: 1.7rem;
+                font-weight: 700;
+                color: #2563eb !important;
+            }
 
-        .nav-link:hover,
-        .nav-link:focus{
-            color:#0d6efd !important;
-        }
+            .nav-link {
+                font-weight: 600;
+                color: #374151 !important;
+                margin: 0 8px;
+                position: relative;
+                transition: .3s;
+            }
 
-        main{
-            background:#fff;
-            margin:30px auto 40px;
-            padding:32px;
-            border-radius:18px;
-            box-shadow:0 5px 25px rgba(0,0,0,.05);
-        }
+                .nav-link::after {
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    left: 0;
+                    bottom: -5px;
+                    height: 2px;
+                    background: #2563eb;
+                    transition: .3s;
+                }
 
-        .table{
-            background:#fff;
-            border-radius:12px;
-            overflow:hidden;
-        }
+                .nav-link:hover {
+                    color: #2563eb !important;
+                }
 
-        .card{
-            border:none;
-            border-radius:16px;
-            box-shadow:0 3px 10px rgba(0,0,0,.08);
-            transition:.25s;
-        }
+                    .nav-link:hover::after {
+                        width: 100%;
+                    }
 
-        .card:hover{
-            transform:translateY(-5px);
-            box-shadow:0 10px 30px rgba(0,0,0,.15);
-        }
+            .search-box {
+                width: 260px;
+            }
 
-        .card img{
-            height:230px;
-            object-fit:cover;
-        }
+            /* ===================== Buttons ===================== */
 
-        footer{
-            background:#fff;
-            border-top:1px solid #dee2e6;
-            color:#6c757d;
-            padding:18px 0;
-        }
+            .btn-account {
+                border-radius: 10px;
+                padding: 8px 18px;
+            }
+
+            .btn-cart {
+                border-radius: 10px;
+                padding: 8px 18px;
+            }
+
+            /* ===================== Main ===================== */
+
+            main {
+                margin: 40px auto;
+            }
+
+            /* ===================== Cards ===================== */
+
+            .card {
+                border: none;
+                border-radius: 18px;
+                box-shadow: 0 5px 20px rgba(0,0,0,.08);
+                transition: .3s;
+            }
+
+                .card:hover {
+                    transform: translateY(-6px);
+                    box-shadow: 0 12px 30px rgba(0,0,0,.12);
+                }
+
+                .card img {
+                    object-fit: cover;
+                }
+
+            /* ===================== Footer ===================== */
+
+            footer {
+                background: white;
+                border-top: 1px solid #e5e7eb;
+                color: #6b7280;
+                padding: 18px 0;
+            }
     </style>
+
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column">
 
-<header>
-    <nav class="navbar navbar-expand-lg">
+    <header>
+
+        <nav class="navbar navbar-expand-lg sticky-top">
+
+            <div class="container-xl">
+
+                <a asp-area=""
+                   asp-controller="Home"
+                   asp-action="Index"
+                   class="navbar-brand">
+
+                    <i class="fas fa-shopping-bag me-2"></i>
+
+                    MyShop
+
+                </a>
+
+                <button class="navbar-toggler"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <div class="collapse navbar-collapse"
+                     id="navbarContent">
+
+                    <ul class="navbar-nav me-auto">
+
+                        <li class="nav-item">
+
+                            <a asp-area=""
+                               asp-controller="Home"
+                               asp-action="Index"
+                               class="nav-link">
+
+                                Home
+
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a asp-area=""
+                               asp-controller="Shop"
+                               asp-action="Index"
+                               class="nav-link">
+
+                                Shop
+
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a asp-area=""
+                               asp-controller="Cart"
+                               asp-action="Index"
+                               class="nav-link">
+
+                                Cart
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                    <form asp-area=""
+                          asp-controller="Shop"
+                          asp-action="Index"
+                          method="get"
+                          class="d-flex me-3">
+
+                        <input name="search"
+                               value="@Context.Request.Query["search"]"
+                               class="form-control search-box"
+                               placeholder="Search products..." />
+
+                        <button class="btn btn-primary ms-2">
+
+                            <i class="fas fa-search"></i>
+
+                        </button>
+
+                    </form>
+
+                    <a asp-area=""
+                       asp-controller="Cart"
+                       asp-action="Index"
+                       class="btn btn-outline-primary btn-cart position-relative me-2">
+
+                        <i class="fas fa-shopping-cart"></i>
+
+                        @await Component.InvokeAsync("CartBadge")
+
+                    </a>
+
+                    <a asp-controller="Account"
+                       asp-action="Login"
+                       class="btn btn-primary btn-account">
+
+                        <i class="fas fa-user me-1"></i>
+
+                        Account
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main class="container flex-grow-1">
+
+        @RenderBody()
+
+    </main>
+
+    <footer class="mt-auto">
+
         <div class="container">
 
-            <a class="navbar-brand"
-               asp-controller="Product"
-               asp-action="Index">
-                🛒 MyShop
-            </a>
+            <div class="row align-items-center">
 
-            <button class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarContent">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <div class="col-md-6">
 
-            <div class="collapse navbar-collapse" id="navbarContent">
+                    © @DateTime.Now.Year <strong>MyShop</strong>. All Rights Reserved.
 
-                <ul class="navbar-nav ms-auto">
+                </div>
 
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           asp-controller="Product"
-                           asp-action="Index">
-                            Products
-                        </a>
-                    </li>
+                <div class="col-md-6 text-md-end mt-2 mt-md-0">
 
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           asp-controller="Category"
-                           asp-action="Index">
-                            Categories
-                        </a>
-                    </li>
+                    Built with ❤️ using ASP.NET Core MVC
 
-                </ul>
+                </div>
 
             </div>
 
         </div>
-    </nav>
-</header>
 
-<main class="container flex-grow-1">
-    @RenderBody()
-</main>
+    </footer>
 
-<footer class="mt-auto">
-    <div class="container text-center">
-        &copy; @DateTime.Now.Year - MyShop. All Rights Reserved.
-    </div>
-</footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
-<script src="~/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="~/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="~/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="~/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-@await RenderSectionAsync("Scripts", required: false)
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
 
 </body>
+
 </html>

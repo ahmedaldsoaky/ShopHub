@@ -7,9 +7,10 @@ using myshop.BLL.Services;
 using myshop.Common;
 using myshop.Entities.Models;
 
-namespace myshop.Web.Controllers.Admin
+namespace myshop.Web.Areas.Admin.Controllers
 {
     [Authorize(Roles = Roles.Admin)]
+    [Area("Admin")]
     public class UserController : Controller
 
     {
@@ -25,7 +26,7 @@ namespace myshop.Web.Controllers.Admin
             return View();
         }
 
-        public async Task<IActionResult> GetData(DataTableRequestDto requestDto)
+        public async Task<IActionResult> GetData(PagedRequestDto requestDto)
         {
             var PagedUsers = await _userService.GetPagedAsync(requestDto);
 

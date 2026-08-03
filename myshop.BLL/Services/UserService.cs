@@ -40,7 +40,7 @@ namespace myshop.BLL.Services
         public async Task<IEnumerable<UserReadDto>> GetAllAsync()
             => await GetAllAsync();
 
-        public async Task<PagedResult<UserReadDto>> GetPagedAsync(DataTableRequestDto requestDto)
+        public async Task<PagedResult<UserReadDto>> GetPagedAsync(PagedRequestDto requestDto)
         {
             Expression<Func<ApplicationUser, bool>>? filter = null;
             

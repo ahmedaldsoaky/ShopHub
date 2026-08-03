@@ -19,6 +19,7 @@ namespace myshop.BLL.Mapping.Projections
                 Description = p.Description,
                 ImgPath = p.ImgPath,
                 Price = p.Price,
+                CategoryId = p.CategoryId,
                 CategoryName = p.Category.Name ?? "No Category",
             };
     }

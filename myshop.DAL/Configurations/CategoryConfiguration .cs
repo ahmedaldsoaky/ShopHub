@@ -13,6 +13,7 @@ namespace myshop.DAL.Configurations
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
+            builder.HasIndex(c => c.Name);
             //builder.HasData(
             //    new Category
             //    {

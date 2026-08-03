@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace myshop.Common
 {
-    public class DataTableRequestDto
+    public class PagedRequestDto
     {
         public int PageNumber { get; set; } = 1;
 

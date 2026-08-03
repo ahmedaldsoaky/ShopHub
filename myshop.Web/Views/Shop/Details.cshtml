@@ -1,0 +1,176 @@
+﻿@using myshop.Web.ViewModels.Shop
+@model ProductDetailsVM
+@Html.AntiForgeryToken()
+@{
+    ViewData["Title"] = Model.Product.Name;
+}
+
+<div class="container py-4">
+
+    <nav aria-label="breadcrumb" class="mb-4">
+
+        <ol class="breadcrumb">
+
+            <li class="breadcrumb-item">
+
+                <a asp-controller="Home"
+                   asp-action="Index">
+
+                    Home
+
+                </a>
+
+            </li>
+
+            <li class="breadcrumb-item">
+
+                <a asp-controller="Shop"
+                   asp-action="Index">
+
+                    Shop
+
+                </a>
+
+            </li>
+
+            <li class="breadcrumb-item active">
+
+                @Model.Product.Name
+
+            </li>
+
+        </ol>
+
+    </nav>
+
+    <div class="card border-0 shadow-lg rounded-4">
+
+        <div class="card-body p-5">
+
+            <div class="row g-5 align-items-center">
+
+                <div class="col-lg-5">
+
+                    <img src="/@Model.Product.ImgPath"
+                         class="product-image"
+                         alt="@Model.Product.Name"
+                         onerror="this.src='/images/no-image.png'" />
+                    <p>@Model.Product.ImgPath</p>
+                </div>
+
+                <div class="col-lg-7">
+
+                    <span class="badge bg-primary mb-3">
+
+                        @Model.Product.CategoryName
+
+                    </span>
+
+                    <h1 class="fw-bold mb-3">
+
+                        @Model.Product.Name
+
+                    </h1>
+
+                    <h2 class="text-success fw-bold mb-4">
+
+                        @Model.Product.Price.ToString("N2") EGP
+
+                    </h2>
+
+                    <p class="text-muted lh-lg mb-4">
+
+                        @Model.Product.Description
+
+                    </p>
+
+                    <div class="d-grid gap-3">
+
+                        <form asp-controller="Cart"
+                              asp-action="Add"
+                              method="post">
+
+                            <input type="hidden"
+                                   name="productId"
+                                   value="@Model.Product.Id" />
+
+                            <input type="hidden"
+                                   name="returnUrl"
+                                   value="@Context.Request.Path" />
+
+                            <button type="submit"
+                                    class="btn btn-success btn-lg w-100">
+
+                                <i class="fas fa-cart-plus me-2"></i>
+
+                                Add To Cart
+
+                            </button>
+
+                        </form>
+
+                        <a asp-controller="Shop"
+                           asp-action="Index"
+                           class="btn btn-outline-secondary">
+
+                            <i class="fas fa-arrow-left me-2"></i>
+
+                            Continue Shopping
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    @if (Model.RelatedProducts.Any())
+    {
+        <section class="mt-5">
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                <h3 class="fw-bold mb-0">
+
+                    Related Products
+
+                </h3>
+
+            </div>
+
+            <div class="row g-4">
+
+                @foreach (var item in Model.RelatedProducts)
+                {
+                    <partial name="_ProductCard"
+                             model="item" />
+                }
+
+            </div>
+
+        </section>
+    }
+
+</div>
+
+<style>
+
+    .product-image{
+        width:100%;
+        max-height:500px;
+        object-fit:contain;
+        border-radius:20px;
+        background:#f8f9fa;
+        padding:20px;
+    }
+
+    .breadcrumb {
+        margin-bottom: 0;
+    }
+
+</style>

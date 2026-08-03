@@ -11,6 +11,11 @@ namespace myshop.DAL.Configurations
             builder.Property(p => p.Price)
                    .HasPrecision(18, 2);
 
+            builder.HasIndex(p => p.Name);
+
+            builder.HasIndex(p => p.CategoryId);
+
+
             //builder.HasData(
             //    new Product
             //    {

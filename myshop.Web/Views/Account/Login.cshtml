@@ -65,7 +65,9 @@
 
     <div class="p-4">
 
-        <form asp-action="Login" method="post">
+        <form asp-controller="Account"
+              asp-action="Login"
+              method="post">
 
             <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
@@ -93,7 +95,12 @@
 
             <div class="text-center mt-3">
                 Don't have an account?
-                <a asp-action="Register">Register</a>
+                <a asp-controller="Account"
+                   asp-action="Register">
+
+                    Register
+
+                </a>
             </div>
 
         </form>

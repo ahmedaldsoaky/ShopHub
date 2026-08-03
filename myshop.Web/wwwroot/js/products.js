@@ -1,10 +1,6 @@
-﻿console.log("products.js loaded");
-$(function () {
+﻿$(function () {
 
     $('#mytable').DataTable({
-        initComplete: function () {
-            console.log("DataTable initialized");
-        },
         processing: true,
         serverSide: true,
         responsive: false,
@@ -16,11 +12,10 @@ $(function () {
         order: [[0, "asc"]],
 
         ajax: {
-            url: "/Product/GetData",
+            url: "/Admin/Product/GetData",
             type: "GET",
 
             data: function (d) {
-                console.log("DataTables Request:", d);
 
                 d.pageNumber = (d.start / d.length) + 1;
                 d.pageSize = d.length;
@@ -47,7 +42,7 @@ $(function () {
                 width: "80px",
                 render: function (img) {
 
-                    const image = img && img.trim() !== ""
+                    const image = img
                         ? `/${img}`
                         : "/images/Default/defaultProduct.jpg";
 
@@ -112,15 +107,15 @@ $(function () {
                 orderable: false,
                 searchable: false,
                 className: "text-center",
-                width: "130px",
+                width: "150px",
 
                 render: function (id) {
 
                     return `
 
-                        <div class="btn-group">
+                        <div class="btn-group" role="group">
 
-                            <a href="/Product/Edit/${id}"
+                            <a href="/Admin/Product/Edit/${id}"
                                class="btn btn-outline-primary btn-sm"
                                title="Edit">
 
@@ -129,7 +124,7 @@ $(function () {
                             </a>
 
                             <button
-                                onclick="Delete('/Product/Delete/${id}')"
+                                onclick="Delete('/Admin/Product/Delete/${id}')"
                                 class="btn btn-outline-danger btn-sm"
                                 title="Delete">
 

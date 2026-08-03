@@ -1,10 +1,9 @@
 ﻿@using myshop.BLL.DTOs.Product
-@model IEnumerable<ProductReadDto>
 
 @{
     ViewBag.PageTitle = "Products Management";
     ViewBag.CardTitle = "View Products";
-    Layout = "~/Views/Shared/_Dashboard.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_Dashboard.cshtml";
 }
 
 <!-- External Styles -->
@@ -119,7 +118,8 @@
     </div>
 
     <div class="top-btn">
-        <a asp-controller="Product" asp-action="Create" class="btn btn-primary">
+        <a asp-area="Admin"
+           asp-controller="Product" asp-action="Create" class="btn btn-primary">
             <i class="fa-solid fa-circle-plus me-1"></i>
             Create Product
         </a>

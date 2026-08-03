@@ -68,7 +68,7 @@ namespace myshop.BLL.Services
             return categories;
         }
 
-        public async Task<PagedResult<CategoryReadDto>> GetPagedAsync(DataTableRequestDto? requestDto)
+        public async Task<PagedResult<CategoryReadDto>> GetPagedAsync(PagedRequestDto? requestDto)
         {
             Expression<Func<Category, bool>>? filter = null;
             if (!string.IsNullOrWhiteSpace(requestDto?.Search))

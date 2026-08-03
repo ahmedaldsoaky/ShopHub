@@ -76,7 +76,7 @@ namespace myshop.BLL.Services
 
         public int GetTotalItems()
         {
-            return GetCart().Sum(c => c.Quantity);
+            return GetCart().Count;
         }
     }
 }

@@ -42,7 +42,28 @@ namespace myshop.DAL.Repositories
                 .Select(selector)
                 .ToListAsync();
         }
-        
+
+        public async Task<IReadOnlyList<TResult>> GetProjectedListAsync<TResult>(
+            Expression<Func<T, TResult>> selector,
+            Expression<Func<T, bool>>? filter = null,
+            Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null)
+        {
+            IQueryable<T> query = table;
+
+            if (filter is not null)
+                query = query
+                    .Where(filter);
+
+            if (orderBy is not null)
+                query = orderBy(query);
+
+            return await query
+                .AsNoTracking()
+                .Select(selector)
+                .ToListAsync();
+        }
+
+
         public async Task<TResult?> GetProjectedFirstOrDefaultAsync<TResult>(
             Expression<Func<T, TResult>> selector,
             Expression<Func<T, bool>>? condition = null)

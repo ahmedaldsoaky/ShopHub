@@ -14,6 +14,7 @@ namespace myshop.BLL.DTOs.Product
         public string Description { get; set; } = null!;
         public string? ImgPath { get; set; }
         public decimal Price { get; set; }
+        public int CategoryId { get; set; }
         public string CategoryName { get; set; } = null!;
     }
 }

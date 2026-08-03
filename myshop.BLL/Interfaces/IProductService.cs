@@ -11,6 +11,10 @@ namespace myshop.BLL.Interfaces
 {
     public interface IProductService : IBaseService<ProductReadDto, Product, int>
     {
+        Task<IReadOnlyList<ProductReadDto>> GetLatestProductsAsync(int count);
+        Task<IReadOnlyList<ProductReadDto>> GetRelatedProductsAsync(int categoryId,
+            int productId,
+            int count = 4);
         Task AddAsync(ProductCreateDto dto);
         Task Update(ProductUpdateDto dto);
         Task Delete(int id);

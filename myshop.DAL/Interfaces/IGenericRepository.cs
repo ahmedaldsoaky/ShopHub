@@ -13,6 +13,11 @@ namespace myshop.DAL.Interfaces
             Expression<Func<T, bool>>? filter = null,
             Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null);
 
+        Task<IReadOnlyList<TResult>> GetProjectedListAsync<TResult>(
+            Expression<Func<T, TResult>> selector,
+            Expression<Func<T, bool>>? filter = null,
+            Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null);
+
         Task<TResult?> GetProjectedFirstOrDefaultAsync<TResult>(
             Expression<Func<T, TResult>> selector,
             Expression<Func<T, bool>>? filter = null);
