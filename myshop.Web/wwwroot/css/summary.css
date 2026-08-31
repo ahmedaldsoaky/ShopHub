@@ -39,7 +39,7 @@ nav, .wrapper {
         text-decoration: none;
     }
 
-    nav div.ml-auto a {
+    nav div.ms-auto a {
         text-decoration: none;
         font-weight: 600;
         font-size: 0.8rem;

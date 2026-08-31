@@ -59,36 +59,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ahmed_aldsoaky/source/repos/ShopHub-Startup-Template-Final/myshop.Web/Areas/Admin/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ahmed_aldsoaky/source/repos/ShopHub-Startup-Template-Final/myshop.Web/Areas/Admin/Views/Shared/_Customer.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9DdXN0b21lci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ahmed_aldsoaky/source/repos/ShopHub-Startup-Template-Final/myshop.Web/Areas/Admin/Views/Shared/_Dashboard.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9EYXNoYm9hcmQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ahmed_aldsoaky/source/repos/ShopHub-Startup-Template-Final/myshop.Web/Areas/Admin/Views/Shared/_LoginPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ahmed_aldsoaky/source/repos/ShopHub-Startup-Template-Final/myshop.Web/Areas/Admin/Views/Shared/_Toaster.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9Ub2FzdGVyLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ahmed_aldsoaky/source/repos/ShopHub-Startup-Template-Final/myshop.Web/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ahmed_aldsoaky/source/repos/ShopHub-Startup-Template-Final/myshop.Web/Areas/Admin/Views/Shared/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WaWV3SW1wb3J0cy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/ahmed_aldsoaky/source/repos/ShopHub-Startup-Template-Final/myshop.Web/Areas/Admin/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ahmed_aldsoaky/source/repos/ShopHub-Startup-Template-Final/myshop.Web/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ahmed_aldsoaky/source/repos/ShopHub-Startup-Template-Final/myshop.Web/Views/Account/Login.cshtml]
@@ -117,6 +93,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ahmed_aldsoaky/source/repos/ShopHub-Startup-Template-Final/myshop.Web/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ahmed_aldsoaky/source/repos/ShopHub-Startup-Template-Final/myshop.Web/Views/Shared/_AccountDropdown.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BY2NvdW50RHJvcGRvd24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ahmed_aldsoaky/source/repos/ShopHub-Startup-Template-Final/myshop.Web/Views/Shared/_Customer.cshtml]

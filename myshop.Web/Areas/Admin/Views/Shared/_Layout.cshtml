@@ -1,181 +1,301 @@
-@*
-    _Layout.cshtml
-*@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MyShop</title>
 
-    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/myshop.Web.styles.css" asp-append-version="true" />
+    <title>myShop | Admin</title>
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="~/plugins/fontawesome-free/css/all.min.css" />
+
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- AdminLTE -->
+    <link rel="stylesheet"
+          href="~/css/adminlte.min.css" />
+
+    <!-- Plugins -->
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+
+    <link rel="stylesheet"
+          href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
+
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+
+    <!-- Custom Admin Styles -->
     <style>
 
-            body {
-                background: linear-gradient(to bottom,#f8fafc,#eef4ff);
-                color: #212529;
-                min-height: 100vh;
-            }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
 
-            /* ===================== Navbar ===================== */
+        /* ===================== Sidebar ===================== */
 
-            .navbar {
-                background: #fff;
-                box-shadow: 0 2px 15px rgba(0,0,0,.08);
-                padding: .9rem 0;
-            }
+        .main-sidebar {
+            background: linear-gradient(180deg, #1e3c72, #2a5298);
+        }
 
-            .navbar-brand {
-                font-size: 1.7rem;
-                font-weight: 700;
-                color: #2563eb !important;
-            }
+        .nav-sidebar > .nav-item > .nav-link {
+            border-radius: 8px;
+            margin-bottom: 5px;
+            transition: .3s;
+        }
 
-            .nav-link {
-                font-weight: 600;
-                color: #374151 !important;
-                margin: 0 8px;
-                position: relative;
-                transition: .3s;
-            }
+        .nav-sidebar > .nav-item > .nav-link:hover {
+            background: rgba(255, 255, 255, .1);
+            color: white;
+        }
 
-                .nav-link::after {
-                    content: "";
-                    position: absolute;
-                    width: 0;
-                    left: 0;
-                    bottom: -5px;
-                    height: 2px;
-                    background: #2563eb;
-                    transition: .3s;
-                }
+        .brand-link {
+            background: #1e3c72;
+            color: white;
+            font-weight: 600;
+        }
 
-                .nav-link:hover {
-                    color: #2563eb !important;
-                }
+        .user-panel img {
+            border: 2px solid white;
+        }
 
-                    .nav-link:hover::after {
-                        width: 100%;
-                    }
+        /* ===================== Content ===================== */
 
-            .search-box {
-                width: 260px;
-            }
+        .content-wrapper {
+            background: #f4f6f9;
+        }
 
-            /* ===================== Buttons ===================== */
+        /* ===================== Cards ===================== */
 
-            .btn-account {
-                border-radius: 10px;
-                padding: 8px 18px;
-            }
+        .card {
+            border: none;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+        }
 
-            .btn-cart {
-                border-radius: 10px;
-                padding: 8px 18px;
-            }
+        .card-header {
+            background: #1e3c72;
+            color: white;
+            font-weight: 600;
+        }
 
-            /* ===================== Main ===================== */
+        .card-tools .btn-tool {
+            color: white;
+        }
 
-            main {
-                margin: 40px auto;
-            }
+        /* ===================== Footer ===================== */
 
-            /* ===================== Cards ===================== */
+        .footer-dark {
+            background: #1e3c72;
+            color: white;
+        }
 
-            .card {
-                border: none;
-                border-radius: 18px;
-                box-shadow: 0 5px 20px rgba(0,0,0,.08);
-                transition: .3s;
-            }
-
-                .card:hover {
-                    transform: translateY(-6px);
-                    box-shadow: 0 12px 30px rgba(0,0,0,.12);
-                }
-
-                .card img {
-                    object-fit: cover;
-                }
-
-            /* ===================== Footer ===================== */
-
-            footer {
-                background: white;
-                border-top: 1px solid #e5e7eb;
-                color: #6b7280;
-                padding: 18px 0;
-            }
     </style>
 
 </head>
 
-<body class="d-flex flex-column">
+<body class="hold-transition sidebar-mini">
 
-    <header>
+    <div class="wrapper">
 
-        <nav class="navbar navbar-expand-lg sticky-top">
+        <!-- ===================== Navbar ===================== -->
 
-            <div class="container-xl">
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light shadow-sm">
 
-                <a class="navbar-brand"
-                   asp-controller="Product"
-                   asp-action="Shop">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
 
-                    <i class="fas fa-shopping-bag me-2"></i>
+                <!-- Sidebar Toggle -->
+                <li class="nav-item">
+                    <a class="nav-link"
+                       data-widget="pushmenu"
+                       href="#"
+                       role="button">
 
-                    MyShop
+                        <i class="fas fa-bars"></i>
 
-                </a>
+                    </a>
+                </li>
 
-                <button class="navbar-toggler"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarContent">
+                <!-- View Store -->
+                <li class="nav-item d-none d-sm-inline-block">
 
-                    <span class="navbar-toggler-icon"></span>
+                    <a asp-area=""
+                       asp-controller="Home"
+                       asp-action="Index"
+                       class="nav-link">
 
-                </button>
+                        <i class="fas fa-store me-1"></i>
+                        View Store
 
-                <div class="collapse navbar-collapse"
-                     id="navbarContent">
+                    </a>
 
-                    <ul class="navbar-nav me-auto">
+                </li>
 
+            </ul>
+
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ms-auto">
+
+                <partial name="~/Views/Shared/_AccountDropdown.cshtml" />
+
+            </ul>
+
+        </nav>
+
+
+        <!-- ===================== Sidebar ===================== -->
+
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+            <!-- Brand Logo -->
+            <a asp-area="Admin"
+               asp-controller="Dashboard"
+               asp-action="Index"
+               class="brand-link">
+
+                <img src="~/images/AdminLTELogo.png"
+                     class="brand-image img-circle elevation-3"
+                     style="opacity: .8"
+                     alt="myShop Logo" />
+
+                <span class="brand-text">
+                    myShop Admin
+                </span>
+
+            </a>
+
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+
+                <!-- User Panel -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+
+                    <div class="image">
+
+                        <img src="~/images/user2-160x160.jpg"
+                             class="img-circle elevation-2"
+                             alt="User Image" />
+
+                    </div>
+
+                    <div class="info">
+
+                        @if (User.Identity?.IsAuthenticated == true)
+                        {
+                            <span class="d-block text-white">
+                                @User.Identity.Name
+                            </span>
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+
+                    <ul class="nav nav-pills nav-sidebar flex-column"
+                        data-widget="treeview"
+                        role="menu"
+                        data-accordion="false">
+
+                        <!-- Dashboard -->
                         <li class="nav-item">
 
-                            <a asp-controller="Home"
+                            <a asp-area="Admin"
+                               asp-controller="Dashboard"
                                asp-action="Index"
                                class="nav-link">
 
-                                Home
+                                <i class="nav-icon fas fa-chart-line"></i>
+
+                                <p>
+                                    Dashboard
+                                </p>
 
                             </a>
 
                         </li>
 
+
+                        <!-- Categories -->
                         <li class="nav-item">
 
-                            <a asp-controller="Product"
-                               asp-action="Shop"
+                            <a asp-area="Admin"
+                               asp-controller="Category"
+                               asp-action="Index"
                                class="nav-link">
 
-                                Shop
+                                <i class="nav-icon fas fa-tags"></i>
+
+                                <p>
+                                    Categories
+                                </p>
 
                             </a>
 
                         </li>
 
+
+                        <!-- Products -->
                         <li class="nav-item">
 
-                            <a asp-controller="Cart"
+                            <a asp-area="Admin"
+                               asp-controller="Product"
                                asp-action="Index"
                                class="nav-link">
 
-                                Cart
+                                <i class="nav-icon fas fa-box-open"></i>
+
+                                <p>
+                                    Products
+                                </p>
+
+                            </a>
+
+                        </li>
+
+
+                        <!-- Users -->
+                        <li class="nav-item">
+
+                            <a asp-area="Admin"
+                               asp-controller="User"
+                               asp-action="Index"
+                               class="nav-link">
+
+                                <i class="nav-icon fas fa-user"></i>
+
+                                <p>
+                                    Users
+                                </p>
+
+                            </a>
+
+                        </li>
+
+
+                        <!-- Orders -->
+                        <li class="nav-item">
+
+                            <a asp-area="Admin"
+                               asp-controller="Order"
+                               asp-action="Index"
+                               class="nav-link">
+
+                                <i class="nav-icon fas fa-truck"></i>
+
+                                <p>
+                                    Orders
+                                </p>
 
                             </a>
 
@@ -183,81 +303,121 @@
 
                     </ul>
 
-                    <form class="d-flex me-3">
-
-                        <input class="form-control search-box"
-                               type="search"
-                               placeholder="Search products..." />
-
-                    </form>
-
-                    <a asp-controller="Cart"
-                       asp-action="Index"
-                       class="btn btn-outline-primary btn-cart position-relative me-2">
-
-                        <i class="fas fa-shopping-cart"></i>
-
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-
-                            0
-
-                        </span>
-
-                    </a>
-
-                    <a asp-controller="Account"
-                       asp-action="Login"
-                       class="btn btn-primary btn-account">
-
-                        <i class="fas fa-user me-1"></i>
-
-                        Account
-
-                    </a>
-
-                </div>
+                </nav>
 
             </div>
 
-        </nav>
+        </aside>
 
-    </header>
 
-    <main class="container flex-grow-1">
+        <!-- ===================== Content ===================== -->
 
-        @RenderBody()
+        <div class="content-wrapper">
 
-    </main>
+            <!-- Content Header -->
+            <section class="content-header">
 
-    <footer class="mt-auto">
+                <div class="container-fluid">
 
-        <div class="container">
-
-            <div class="row align-items-center">
-
-                <div class="col-md-6">
-
-                    © @DateTime.Now.Year <strong>MyShop</strong>. All Rights Reserved.
+                    <h1>
+                        @ViewBag.PageTitle
+                    </h1>
 
                 </div>
 
-                <div class="col-md-6 text-md-end mt-2 mt-md-0">
+            </section>
 
-                    Built with ❤️ using ASP.NET Core MVC
+
+            <!-- Main Content -->
+            <section class="content">
+
+                <div class="container-fluid">
+
+                    <div class="card">
+
+                        <div class="card-header">
+
+                            <h3 class="card-title">
+                                @ViewBag.CardTitle
+                            </h3>
+
+                            <div class="card-tools">
+
+                                <button type="button"
+                                        class="btn btn-tool"
+                                        data-card-widget="collapse">
+
+                                    <i class="fas fa-minus"></i>
+
+                                </button>
+
+                                <button type="button"
+                                        class="btn btn-tool"
+                                        data-card-widget="remove">
+
+                                    <i class="fas fa-times"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="card-body">
+
+                            <partial name="_Toaster" />
+
+                            @RenderBody()
+
+                        </div>
+
+                    </div>
 
                 </div>
 
-            </div>
+            </section>
 
         </div>
 
-    </footer>
+
+        <!-- ===================== Footer ===================== -->
+
+        <footer class="main-footer footer-dark">
+
+            <div class="float-right d-none d-sm-block">
+
+                <b>Version</b> 3.2.0
+
+            </div>
+
+            <strong>
+                Copyright &copy; @DateTime.Now.Year myShop.
+            </strong>
+
+        </footer>
+
+    </div>
+
+
+    <!-- ===================== Scripts ===================== -->
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+    <script src="~/js/adminlte.min.js"></script>
+
+    <script src="~/js/site.js"></script>
+
+    <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     @await RenderSectionAsync("Scripts", required: false)
 

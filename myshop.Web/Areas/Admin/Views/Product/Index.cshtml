@@ -3,7 +3,7 @@
 @{
     ViewBag.PageTitle = "Products Management";
     ViewBag.CardTitle = "View Products";
-    Layout = "~/Areas/Admin/Views/Shared/_Dashboard.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <!-- External Styles -->
@@ -118,11 +118,18 @@
     </div>
 
     <div class="top-btn">
-        <a asp-area="Admin"
+        @* <a href="/Admin/Product/Create"
+           class="btn btn-primary">
+
+            <i class="fa-solid fa-circle-plus me-1"></i>
+            Create Product
+
+        </a> *@
+         <a asp-area="Admin"
            asp-controller="Product" asp-action="Create" class="btn btn-primary">
             <i class="fa-solid fa-circle-plus me-1"></i>
             Create Product
-        </a>
+        </a> 
     </div>
 
     <table id="mytable" class="display table-hover" style="width: 100%;">

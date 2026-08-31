@@ -113,8 +113,6 @@ namespace myshop.Web.Controllers
         #region Logout
 
         [Authorize]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();

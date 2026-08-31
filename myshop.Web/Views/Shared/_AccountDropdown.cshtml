@@ -1,0 +1,63 @@
+﻿@if (User.Identity?.IsAuthenticated ?? false)
+{
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown">
+            <i class="fas fa-user me-1"></i>
+            @User.Identity.Name
+        </button>
+
+        <ul class="dropdown-menu">
+            <li>
+                <a class="dropdown-item"
+                   asp-area=""
+                   asp-controller="Account"
+                   asp-action="Profile">
+                    <i class="fas fa-user me-2"></i>
+                    Account
+                </a>
+            </li>
+
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+
+            <li>
+                <form asp-area=""
+                      asp-controller="Account"
+                      asp-action="Logout"
+                      method="post">
+
+                    @Html.AntiForgeryToken()
+
+                    <button type="submit" class="dropdown-item">
+                        <i class="fas fa-sign-out-alt me-2"></i>
+                        Logout
+                    </button>
+
+                </form>
+            </li>
+        </ul>
+    </div>
+}
+else
+{
+    <div class="d-flex gap-2">
+        <a asp-area=""
+           asp-controller="Account"
+           asp-action="Login"
+           class="btn btn-primary">
+            <i class="fas fa-sign-in-alt me-1"></i>
+            Login
+        </a>
+
+        <a asp-area=""
+           asp-controller="Account"
+           asp-action="Register"
+           class="btn btn-outline-primary">
+            <i class="fas fa-user-plus me-1"></i>
+            Join
+        </a>
+    </div>
+}

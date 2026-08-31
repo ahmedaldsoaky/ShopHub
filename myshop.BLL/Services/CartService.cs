@@ -53,7 +53,7 @@ namespace myshop.BLL.Services
         {
             var cart = GetCart();
             var item = cart.FirstOrDefault(c => c.ProductId == productId);
-            if (item is not null)
+            if (item is not null) //&& item.Quantity + 1 < Product.Quantity)
                 item.Quantity++;
             Session.SetObject(CartKey, cart);
         }
@@ -62,7 +62,7 @@ namespace myshop.BLL.Services
         {
             var cart = GetCart();
             var item = cart.FirstOrDefault(c => c.ProductId == productId);
-            if (item is not null)
+            if (item is not null && item.Quantity > 1)
                 item.Quantity--;
             Session.SetObject(CartKey, cart);
         }

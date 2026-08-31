@@ -1,3 +1,4 @@
+@using myshop.Common
 @*
     _Layout.cshtml
 *@
@@ -185,6 +186,21 @@
                             </a>
 
                         </li>
+                        @if(User.IsInRole(Roles.Admin))
+                        {
+                            <li class="nav-item">
+
+                                <a asp-area="Admin"
+                                    asp-controller="Product"
+                                    asp-action="Index"
+                                    class="nav-link">
+
+                                    Admin Dashboard
+
+                                </a>
+
+                            </li>
+                        }
 
                     </ul>
 
@@ -217,17 +233,7 @@
                         @await Component.InvokeAsync("CartBadge")
 
                     </a>
-
-                    <a asp-controller="Account"
-                       asp-action="Login"
-                       class="btn btn-primary btn-account">
-
-                        <i class="fas fa-user me-1"></i>
-
-                        Account
-
-                    </a>
-
+                        <partial name="_AccountDropdown" />
                 </div>
 
             </div>

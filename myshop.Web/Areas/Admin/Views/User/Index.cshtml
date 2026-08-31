@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.PageTitle = "User Management";
     ViewBag.CardTitle = "View Users";
-    Layout = "~/Areas/Admin/Views/Shared/_Dashboard.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 
 }
 
@@ -10,14 +10,6 @@
     <div class="custom-card-title">
         <i class="fa-solid fa-users me-2"></i>
         Users List
-    </div>
-
-    <div class="top-btn">
-        <a asp-action="Register" 
-        asp-controller="Account" class="btn btn-primary">
-            <i class="fa-solid fa-user-plus me-1"></i>
-            Add User
-        </a>
     </div>
 
     <table id="mytable"
