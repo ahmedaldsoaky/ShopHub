@@ -110,8 +110,6 @@
   <ItemGroup>
     <Folder Include="Views\Account\" />
     <Folder Include="Areas\Admin\Views\Shared\Components\" />
-    <Folder Include="Seeds\Json\" />
-    <Folder Include="Views\Checkout\" />
     <Folder Include="wwwroot\NewFolder\" />
   </ItemGroup>
 

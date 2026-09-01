@@ -1,10 +1,5 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using myshop.BLL.Mapping;
-using myshop.DAL.Context;
-using myshop.Entities.Models;
-using myshop.Web.Seeds;
+using myshop.BLL.Extensions.DependencyInjection;
+using myshop.Web.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,17 +24,13 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 ///    ==== -->>>   ///  Dependency Injection for UnitOfWork and Repositories
-builder.Services.AddDataAccess(builder.Configuration);
+builder.Services.AddDependances(builder.Configuration);
 
 
 
 builder.Services.AddAutoMapper(
     cfg => { },
     AppDomain.CurrentDomain.GetAssemblies());
-
-
-builder.Services.AddHttpContextAccessor();
-
 
 builder.Services.AddDistributedMemoryCache();
 
@@ -55,16 +46,9 @@ var app = builder.Build();
 Console.WriteLine(app.Environment.WebRootPath);
 Console.WriteLine(app.Environment.ContentRootPath);
 
-// ask for it
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    db.Database.Migrate();
-    await IdentitySeeder.SeedRolesAsync(scope.ServiceProvider);
-    await IdentitySeeder.SeedUsersAsync(scope.ServiceProvider);
-    await DataSeeder.SeedAsync(scope.ServiceProvider);
 
-}
+// initialize the application (e.g., seed data, create roles, etc.)
+await app.Services.InitializeApplicationAsync();
 
 
 // Configure the HTTP request pipeline.

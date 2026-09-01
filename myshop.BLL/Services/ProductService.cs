@@ -15,11 +15,14 @@ namespace myshop.BLL.Services
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly IImageValidationService _imageValidationService;
+        private readonly IImageService _imageService;
 
-        public ProductService(IUnitOfWork unitOfWork, IMapper mapper)
+        public ProductService(IUnitOfWork unitOfWork, IMapper mapper, IImageValidationService imageValidationService)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _imageValidationService = imageValidationService;
         }
 
 
@@ -80,6 +83,21 @@ namespace myshop.BLL.Services
         public async Task AddAsync(ProductCreateDto dto)
         {
             var product = _mapper.Map<Product>(dto);
+
+            if (!string.IsNullOrWhiteSpace(dto.ImageFileName))
+            {
+                var extension = Path.GetExtension(dto.ImageFileName);
+                
+                if (!_imageValidationService.IsValid(extension, dto.ImageSize))
+                    throw new ArgumentException("Invalid image file.");
+                
+                var imagePath = await _imageService.SaveAsync(
+                    dto.ImageFileName,
+                    dto.ImageContent,
+                    "Products");
+                product.ImgPath = imagePath;
+            }
+            
             await _unitOfWork.Products.AddAsync(product);
             await _unitOfWork.SaveAsync();
         }
@@ -87,9 +105,31 @@ namespace myshop.BLL.Services
         public async Task Update(ProductUpdateDto dto)
         {
             var product = await _unitOfWork.Products.GetByIdAsync(dto.Id);
+            
             if (product is null)
                 throw new KeyNotFoundException("Product not found.");
+            
+            var oldImagePath = product.ImgPath;
+            
             _mapper.Map(dto, product);
+            
+            if (!string.IsNullOrWhiteSpace(dto.ImageFileName))
+            {
+                var extension = Path.GetExtension(dto.ImageFileName);
+
+                if (!_imageValidationService.IsValid(
+                        extension,
+                        dto.ImageSize))
+                {
+                    throw new ArgumentException("Invalid image file.");
+                }    
+
+                product.ImgPath = await _imageService.ReplaceAsync(
+                    fileName     : dto.ImageFileName,
+                    content      : dto.ImageContent!,
+                    oldImagePath : oldImagePath,
+                    "Products");
+            }
 
             // tracked object 
             // no need
@@ -101,7 +141,10 @@ namespace myshop.BLL.Services
         {
             var product = await _unitOfWork.Products.GetByIdAsync(id);
             if (product is null)
-                return;
+                throw new KeyNotFoundException("Product not found.");
+
+            _imageService.Delete(product.ImgPath);
+            
             _unitOfWork.Products.Delete(product);
             await _unitOfWork.SaveAsync();
         }

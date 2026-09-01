@@ -1,4 +1,6 @@
-﻿namespace myshop.Web.Seeds.Dtos
+﻿using System;
+using System.Collections.Generic;
+namespace myshop.DAL.Seeds.Dtos
 {
     public class UserSeedDto
     {

@@ -84,7 +84,14 @@ namespace myshop.Web.Areas.Admin.Controllers
 
             var dto = _mapper.Map<CategoryUpdateDto>(categoryVM);
 
-            await _categoryService.Update(dto);
+            try
+            {
+                await _categoryService.Update(dto);
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }
 
             TempData["Update"] = "Data has Updated Successfully";
 
@@ -94,19 +101,19 @@ namespace myshop.Web.Areas.Admin.Controllers
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
-            var category = await _categoryService.GetByIdAsync(id);
-
-            if (category is null)
+            try
             {
+                await _categoryService.Delete(id);
+            }
+            catch (KeyNotFoundException)
+            {
+                // Log the exception (ex) here if needed
                 return Json(new
                 {
                     success = false,
-                    message = "Error while deleting."
+                    message = "Category not found."
                 });
             }
-
-            await _categoryService.Delete(id);
-
             return Json(new
             {
                 success = true,

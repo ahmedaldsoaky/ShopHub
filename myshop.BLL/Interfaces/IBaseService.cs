@@ -1,13 +1,7 @@
 ﻿using myshop.BLL.DTOs.Product;
 using myshop.BLL.DTOs.User;
 using myshop.Common;
-using myshop.Entities.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace myshop.BLL.Interfaces
 {

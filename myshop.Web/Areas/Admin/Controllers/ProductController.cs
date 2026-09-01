@@ -1,15 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using myshop.BLL.DTOs.Product;
 using myshop.BLL.Interfaces;
 using myshop.Common;
-using myshop.DAL.Context;
-using myshop.DAL.Interfaces;
-using myshop.Web.Services.IServices;
 using myshop.Web.ViewModels.Product;
 
 namespace myshop.Web.Areas.Admin.Controllers
@@ -21,16 +16,12 @@ namespace myshop.Web.Areas.Admin.Controllers
         private readonly IProductService _productService;
         private readonly ICategoryService _categoryService;
         private readonly IMapper _mapper;
-        private readonly IWebHostEnvironment _webHostEnvironment;
-        private readonly IImageService _imageService;
 
-        public ProductController(IProductService productService, ICategoryService categoryService, IMapper mapper, IWebHostEnvironment webHostEnvironment, IImageService imageService)
+        public ProductController(IProductService productService, ICategoryService categoryService, IMapper mapper)
         {
             _productService = productService;
             _categoryService = categoryService;
             _mapper = mapper;
-            _webHostEnvironment = webHostEnvironment;
-            _imageService = imageService;
         }
 
         public IActionResult Index()
@@ -57,7 +48,7 @@ namespace myshop.Web.Areas.Admin.Controllers
         {
             ProductCreateVM productVM = new ProductCreateVM()
             {
-                Categories = (await _categoryService.GetAllAsync())
+                CategoryList = (await _categoryService.GetAllAsync())
                     .Select(x => new SelectListItem
                     {
                         Text = x.Name,
@@ -71,14 +62,40 @@ namespace myshop.Web.Areas.Admin.Controllers
         public async Task<IActionResult> Create(ProductCreateVM productVM)
         {
             if (!ModelState.IsValid)
+            {
+                productVM.CategoryList = (await _categoryService.GetAllAsync())
+                    .Select(c => new SelectListItem
+                    {
+                        Value = c.Id.ToString(),
+                        Text = c.Name
+                    });
+
                 return View(productVM);
-            
+            }
+
             var product = _mapper.Map<ProductCreateDto>(productVM);
-                
+
             if (productVM.ImgFile is not null)
-                product.ImgPath = await _imageService.SaveImageAsync(productVM.ImgFile, "Products"); ;
-                
-            await _productService.AddAsync(product);
+            {
+                product.ImageFileName = productVM.ImgFile.FileName;
+                product.ImageSize = productVM.ImgFile.Length;
+                product.ImageContent = productVM.ImgFile.OpenReadStream();
+            }
+            try
+            {
+                await _productService.AddAsync(product);
+            }
+            catch(ArgumentException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                productVM.CategoryList = (await _categoryService.GetAllAsync())
+                    .Select(c => new SelectListItem
+                    {
+                        Value = c.Id.ToString(),
+                        Text = c.Name
+                    });
+                return View(productVM);
+            }
                 
             TempData["Create"] = "Item has Created Successfully";
                 
@@ -89,7 +106,9 @@ namespace myshop.Web.Areas.Admin.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var product = await _productService.GetByIdAsync(id);
-
+            if(product is null)
+                return NotFound();
+            
             var updateProduct = _mapper.Map<ProductUpdateVM>(product);
             updateProduct.CategoryList = (await _categoryService.GetAllAsync())
                 .Select(x => new SelectListItem
@@ -116,34 +135,32 @@ namespace myshop.Web.Areas.Admin.Controllers
                 return View(productVM);
             }
             
-            var productInDb = await _productService.GetByIdAsync(productVM.Id);
-            if(productInDb is null)
-            {
-                return NotFound("ياحرامي يابن ....");
-            }
+            // Update is already getting Product
+            
+            //var productInDb = await _productService.GetByIdAsync(productVM.Id);
+            
+            //if(productInDb is null)
+            //{
+            //    return NotFound("ياحرامي يابن ....");
+            //}
 
             var dto = _mapper.Map<ProductUpdateDto>(productVM);
 
+            if (productVM.Img is not null)
+            {
+                dto.ImageFileName = productVM.Img.FileName;
+                dto.ImageSize = productVM.Img.Length;
+                dto.ImageContent = productVM.Img.OpenReadStream();
+            }
+
             try
             {
-                if(productVM.Img is not null)
-                    dto.ImgPath = await _imageService.ReplaceImageAsync(productVM.Img, productInDb.ImgPath, "Products");
+                await _productService.Update(dto);
             }
-            catch (InvalidOperationException ex)
+            catch (KeyNotFoundException)
             {
-                ModelState.AddModelError(nameof(productVM.Img), ex.Message);
-                
-                productVM.CategoryList = (await _categoryService.GetAllAsync())
-                    .Select(c => new SelectListItem
-                    {
-                        Value = c.Id.ToString(),
-                        Text = c.Name
-                    });
-
-                return View(productVM);
+                return NotFound();
             }
-            
-            await _productService.Update(dto);
 
             return RedirectToAction(nameof(Index));
         }
@@ -151,21 +168,18 @@ namespace myshop.Web.Areas.Admin.Controllers
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
-            var product = await _productService.GetByIdAsync(id);
-
-            if (product is null)
+            try
+            {
+                await _productService.Delete(id);
+            }
+            catch (KeyNotFoundException)
             {
                 return Json(new
                 {
                     success = false,
-                    message = "Error while deleting."
+                    message = "Product not found."
                 });
             }
-
-            _imageService.DeleteImage(product.ImgPath);
-
-            await _productService.Delete(id);
-
             return Json(new
             {
                 success = true,

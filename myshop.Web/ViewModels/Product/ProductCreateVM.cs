@@ -14,14 +14,14 @@ namespace myshop.Web.ViewModels.Product
         
         [Display(Name = "Image")]
         //[AllowedExtensions(".jpg", ".jpeg", ".png", ".webp")] نبقى نعملها بعدين
-        public IFormFile? ImgFile { get; set; } = null!;
+        public IFormFile? ImgFile { get; set; }
         
         [Required, Range(0, double.MaxValue)]
         public decimal Price { get; set; }
         
         [Required, Range(1, int.MaxValue)]
         public int CategoryId { get; set; }
-        public IEnumerable<SelectListItem> Categories { get; set; }
+        public IEnumerable<SelectListItem> CategoryList { get; set; }
             = Enumerable.Empty<SelectListItem>();
     }
 }

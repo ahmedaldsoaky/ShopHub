@@ -1,11 +1,7 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using myshop.BLL.Interfaces;
-using myshop.BLL.Services;
 using myshop.Common;
-using myshop.Entities.Models;
 
 namespace myshop.Web.Areas.Admin.Controllers
 {
@@ -16,7 +12,7 @@ namespace myshop.Web.Areas.Admin.Controllers
     {
         private readonly IUserService _userService;
 
-        public UserController(IUserService userService, UserManager<ApplicationUser> userManager, IMapper mapper)
+        public UserController(IUserService userService)
         {
             _userService = userService;
         }

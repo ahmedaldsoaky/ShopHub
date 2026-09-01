@@ -1,0 +1,5 @@
+1- Add ajax call for adding items to chart
+2- Add ajax call for removing items from chart
+3- Add ajax call for increasing or decreasing item quantity in chart
+4- Add ajax call for clearing all items from chart
+5- Add ajax call for searching in products in home page

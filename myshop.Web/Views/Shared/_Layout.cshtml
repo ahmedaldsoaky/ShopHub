@@ -180,12 +180,20 @@
                                asp-controller="Cart"
                                asp-action="Index"
                                class="nav-link">
-
                                 Cart
-
                             </a>
 
                         </li>
+
+                        <li class="nav-item">
+
+                            <a asp-controller="Order"
+                               asp-action="Index"
+                               class="nav-link">
+                                My Orders
+                            </a>
+                        </li>
+
                         @if(User.IsInRole(Roles.Admin))
                         {
                             <li class="nav-item">

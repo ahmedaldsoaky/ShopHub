@@ -16,3 +16,6 @@ C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.DAL\o
 C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.DAL\obj\Debug\net8.0\refint\myshop.DAL.dll
 C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.DAL\obj\Debug\net8.0\myshop.DAL.pdb
 C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.DAL\obj\Debug\net8.0\ref\myshop.DAL.dll
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.DAL\bin\Debug\net8.0\Seeds\Json\categories.json
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.DAL\bin\Debug\net8.0\Seeds\Json\products.json
+C:\Users\ahmed_aldsoaky\source\repos\ShopHub-Startup-Template-Final\myshop.DAL\bin\Debug\net8.0\Seeds\Json\users.json

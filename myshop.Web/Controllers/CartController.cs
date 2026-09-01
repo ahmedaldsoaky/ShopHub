@@ -22,7 +22,7 @@ namespace myshop.Web.Controllers
             {
                 Items = _cartService.GetCart(),
                 OrderTotal = _cartService.GetOrderTotal(),
-                TotalItems = _cartService.GetTotalItems()
+                TotalItems = _cartService.GetItemCount()
             });
         }
 
@@ -33,7 +33,7 @@ namespace myshop.Web.Controllers
             var product = await _productService.GetByIdAsync(productId);
             if (product is null)
                 return NotFound();
-            
+
             _cartService.AddItem(new CartItemDto
             {
                 ProductId = productId,

@@ -2,20 +2,13 @@
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using myshop.BLL.DTOs.Category;
-using myshop.BLL.DTOs.Product;
 using myshop.BLL.Interfaces;
 using myshop.BLL.Mapping.Projections;
 using myshop.Common;
 using myshop.DAL.Interfaces;
-using myshop.DAL.UnitOfWork;
 using myshop.Entities.Models;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace myshop.BLL.Services
 {
@@ -151,7 +144,9 @@ namespace myshop.BLL.Services
 
             _mapper.Map(dto, category);
 
-            _unitOfWork.Categories.Update(category);
+            // no need -> object is already tracked
+
+            //_unitOfWork.Categories.Update(category);
             await _unitOfWork.SaveAsync();
             _cache.Remove(CategoriesCacheKey);
         }
@@ -161,13 +156,11 @@ namespace myshop.BLL.Services
             var category = await _unitOfWork.Categories.GetByIdAsync(id);
 
             if (category is null)
-                return;
+                throw new KeyNotFoundException("Category not found.");
 
             _unitOfWork.Categories.Delete(category);
             await _unitOfWork.SaveAsync();
             _cache.Remove(CategoriesCacheKey);
         }
-
-        
     }
 }

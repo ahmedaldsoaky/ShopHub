@@ -1,21 +1,13 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.Json;
-using myshop.BLL.DTOs.Product;
 using myshop.BLL.DTOs.User;
 using myshop.BLL.Interfaces;
-using myshop.BLL.Mapping.Projections;
 using myshop.Common;
 using myshop.DAL.Context;
 using myshop.Entities.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace myshop.BLL.Services
 {
@@ -37,8 +29,33 @@ namespace myshop.BLL.Services
             this.context = context;
         }
 
+        // get all -> infinit loop  => not implemented
         public async Task<IEnumerable<UserReadDto>> GetAllAsync()
-            => await GetAllAsync();
+        {
+            var query = context.Users
+                .Join(
+                    context.UserRoles,
+                    u => u.Id,
+                    ur => ur.UserId,
+                    (u, ur) => new { u, ur })
+                .Join(
+                    context.Roles,
+                    x => x.ur.RoleId,
+                    r => r.Id,
+                    (x, r) => new UserReadDto
+                    {
+                        Id = x.u.Id,
+                        UserName = x.u.UserName!,
+                        FullName = x.u.FullName,
+                        Email = x.u.Email!,
+                        PhoneNumber = x.u.PhoneNumber!,
+                        IsLocked = x.u.LockoutEnd != null && x.u.LockoutEnd > DateTimeOffset.UtcNow,
+                        Role = r.Name!
+                    })
+                .OrderBy(x => x.FullName); // Default ordering
+
+            return await query.ToListAsync();
+        }
 
         public async Task<PagedResult<UserReadDto>> GetPagedAsync(PagedRequestDto requestDto)
         {

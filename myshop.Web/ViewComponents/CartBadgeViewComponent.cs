@@ -14,6 +14,6 @@ public class CartBadgeViewComponent : ViewComponent
 
     public IViewComponentResult Invoke()
     {
-        return View(_cartService.GetTotalItems());
+        return View(_cartService.GetItemCount());
     }
 }

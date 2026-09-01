@@ -1,9 +1,4 @@
 ﻿using myshop.BLL.DTOs.Cart;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace myshop.BLL.Interfaces
 {
@@ -22,6 +17,6 @@ namespace myshop.BLL.Interfaces
         void ClearCart();
 
         decimal GetOrderTotal();
-        int GetTotalItems();
+        int GetItemCount();
     }
 }

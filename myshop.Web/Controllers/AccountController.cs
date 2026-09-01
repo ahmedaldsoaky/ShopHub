@@ -1,23 +1,25 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using myshop.BLL.DTOs.Account;
+using myshop.BLL.Interfaces;
 using myshop.Common;
-using myshop.Entities.Models;
 using myshop.Web.ViewModels.Account;
 
 namespace myshop.Web.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IAccountService _accountService;
+        private readonly IMapper _mapper;
+
 
         public AccountController(
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager)
+            IAccountService accountService,
+            IMapper mapper)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
+            _accountService = accountService;
+            _mapper = mapper;
         }
 
         #region Register
@@ -26,7 +28,9 @@ namespace myshop.Web.Controllers
         public IActionResult Register()
         {
             if (User.Identity?.IsAuthenticated == true)
-                return RedirectToHomeByRole();
+                return RedirectToHomeByRole(User.IsInRole(Roles.Admin)
+                    ? Roles.Admin
+                    : Roles.Customer);
 
             return View();
         }
@@ -37,29 +41,19 @@ namespace myshop.Web.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            var user = new ApplicationUser
-            {
-                FullName = model.FullName,
-                UserName = model.UserName,
-                Email = model.Email,
-                PhoneNumber = model.PhoneNumber
-            };
+            var registerDto = _mapper.Map<RegisterDto>(model);
 
-            var result = await _userManager.CreateAsync(user, model.Password);
+            var result = await _accountService.RegisterAsync(registerDto);
 
             if (!result.Succeeded)
             {
                 foreach (var error in result.Errors)
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    ModelState.AddModelError(string.Empty, error);
 
                 return View(model);
             }
 
-            await _userManager.AddToRoleAsync(user, Roles.Customer);
-
-            await _signInManager.SignInAsync(user, isPersistent: false);
-
-            return RedirectToHomeByRole();
+            return RedirectToHomeByRole(result.Role);
         }
 
         #endregion
@@ -70,7 +64,9 @@ namespace myshop.Web.Controllers
         public IActionResult Login()
         {
             if (User.Identity?.IsAuthenticated == true)
-                return RedirectToHomeByRole();
+                return RedirectToHomeByRole(User.IsInRole(Roles.Admin)
+                    ? Roles.Admin
+                    : Roles.Customer);
 
             return View();
         }
@@ -80,32 +76,24 @@ namespace myshop.Web.Controllers
         {
             if (!ModelState.IsValid)
                 return View(model);
-
-            var result = await _signInManager.PasswordSignInAsync(
-                model.UserName,
-                model.Password,
-                model.RememberMe,
-                lockoutOnFailure: true);
+            var loginDto = _mapper.Map<LoginDto>(model);
+            var result = await _accountService.LoginAsync(loginDto);
 
             if (result.IsLockedOut)
             {
                 ModelState.AddModelError(string.Empty,
                     "Your account has been locked due to multiple failed login attempts.");
-
                 return View(model);
             }
 
             if (!result.Succeeded)
             {
-                ModelState.AddModelError(string.Empty,
-                    "Invalid username or password.");
-
+                foreach(var error in result.Errors)
+                    ModelState.AddModelError(string.Empty, error);
                 return View(model);
             }
 
-            var user = await _userManager.FindByNameAsync(model.UserName);
-
-            return await RedirectToHomeByRoleAsyncِ(user!);
+            return RedirectToHomeByRole(result.Role);
         }
 
         #endregion
@@ -115,7 +103,7 @@ namespace myshop.Web.Controllers
         [Authorize]
         public async Task<IActionResult> Logout()
         {
-            await _signInManager.SignOutAsync();
+            await _accountService.LogoutAsync();
 
             return RedirectToAction(nameof(Login));
         }
@@ -124,9 +112,9 @@ namespace myshop.Web.Controllers
 
         #region Helpers
 
-        private IActionResult RedirectToHomeByRole()
+        private IActionResult RedirectToHomeByRole(string role)
         {
-            if (User.IsInRole(Roles.Admin))
+            if (role == Roles.Admin)
             {
                 return RedirectToAction(
                     actionName: "Index",
@@ -138,22 +126,7 @@ namespace myshop.Web.Controllers
                 actionName: "Index",
                 controllerName: "Home");
         }
-
-        private async Task<IActionResult> RedirectToHomeByRoleAsyncِ(ApplicationUser user)
-        {
-            if (await _userManager.IsInRoleAsync(user, Roles.Admin))
-            {
-                return RedirectToAction(
-                    "Index",
-                    "Product",
-                    new { area = "Admin" });
-            }
-
-            return RedirectToAction(
-                "Index",
-                "Home");
-        }
-
+        
         #endregion
     }
 }
